@@ -1,9 +1,9 @@
 #!/bin/bash
- 
+
 git add --all
 git add -u
 git commit -m "Build GH PAGES - To revert this, squash the last commit."
-ng build --prod --output-path="./../dist-foeco.temp" --aot --base-href="./"
+ng build --prod --output-path="./../dist-foeco.temp" --aot --base-href="https://vinagreti.github.io/"
 cp ./404.html ./../dist-foeco.temp/
 
 git checkout gh-pages
