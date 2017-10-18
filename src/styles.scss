@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 0;
+  margin: 0;
+  min-width: 600px;
+}
+/*
+ * Anchor without styles
+ */
+a{
+  text-decoration: none;
+}
+
+/*
+* Global helpers
+*/
+.text-center{
+  text-align: center;
+}
+
+.click{
+  cursor: pointer;
+}
+
+.flex-spacer{
+  flex: 1 1 auto;
+}
+
+/*
+* Chrome autocomplete bg
+*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(255,255,255, 0.8) inset;
+}
+
+/*
+* Material Desing Global Config
+*/
+.mat-input-container{
+  width: 100% !important;
+}
+
+/*
+* Material Overlay Pan fix mobile dialog positioning
+*/
+.cdk-overlay-pane{
+  width: auto !important; //fix dialog position on mobile - should test in future material versions
+}
+
+
+/*
+* Layout classes
+*/
+.default-content-container{
+  padding: 16px;
+  max-width: 1040px;
+  margin: auto;
+}
