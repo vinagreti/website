@@ -8,7 +8,7 @@ cp ./index.html ./../dist-foeco.temp/404.html
 cp ./gh-page.sh ./../dist-foeco.temp/gh-page.sh
 
 git checkout master
-find . -type f -not -nem='.gitignore' -print0 | xargs -0 rm --
+rm -r ./*
 
 mv ./../dist-foeco.temp/* ./
 git add --all
