@@ -1,12 +1,18 @@
 @import './../style/constants';
 
-.home-title{
-  font-size: 5em;
+.home-title-wrapper{
   color: white;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 0.5em;
 }
+
+  .home-title{
+    font-size: 5em;
+  }
+  .home-subtitle{
+    font-size: 4em;
+  }
 
 .home-bg-wrapper {
   overflow: hidden;
@@ -25,11 +31,13 @@
   z-index: -1;
 }
 
-@media screen and (max-width: $minimunWidth) {
+@media screen and (max-width: $smallToMedium) {
   .home-title{
-    font-size: 4em;
+    font-size: 3em;
   }
-
+  .home-subtitle{
+    font-size: 2em;
+  }
   .home-bg-wrapper {
     width: auto;
     height: 25em;
@@ -45,5 +53,23 @@
   .home-bg {
     max-height: none;
     background-position: 85% center;
+  }
+}
+
+@media screen and (max-width: ($smallToMedium - $minimunWidth)/2) {
+  .home-title{
+    font-size: 2em;
+  }
+  .home-subtitle{
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: $minimunWidth) {
+  .home-title{
+    font-size: 2em;
+  }
+  .home-subtitle{
+    font-size: 1.5em;
   }
 }
