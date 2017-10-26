@@ -1,27 +1,58 @@
+<mat-toolbar color="primary" class="sidenav-toolbar" (click)="sidenav.close()">
+  <div class="toolbar-content">
 
+    <a (click)="sidenav.toggle()" href="javascript:void(0)" class="show-medium">
+      <mat-icon fontIcon="fa-bars"></mat-icon>
+    </a>
 
-<mat-toolbar color="primary">
-  <span>Bruno João</span>
+    &nbsp;
+    &nbsp;
 
-  <span class="toolbar-spacer"></span>
+    <span class="click" routerLink="/">Bruno João</span>
 
-  <a mat-button routerLink="about">about</a>
-  <a mat-button routerLink="portfolio">portfolio</a>
-  <a mat-button routerLink="blog">blog</a>
-  <a mat-button routerLink="contact">contact</a>
+    <span class="toolbar-spacer"></span>
 
-  <span class="toolbar-spacer"></span>
+    <span class="hide-medium">
+      <a mat-button routerLink="about">about</a>
+      <a mat-button routerLink="blog">blog</a>
+      <a mat-button routerLink="contact">contact</a>
+      <a mat-button routerLink="portfolio">portfolio</a>
+    </span>
 
-  <a mat-icon-button href="https://www.linkedin.com/in/brunojoao/" target="_blank">
-    <mat-icon fontIcon="fa-linkedin"></mat-icon>
-  </a>
-  &nbsp;
-  &nbsp;
-  <a mat-icon-button href="https://stackoverflow.com/users/2009212/vinagreti" target="_blank">
-    <mat-icon fontIcon="fa-stack-overflow"></mat-icon>
-  </a>
+    <span class="toolbar-spacer"></span>
 
+    <span>
+      <a href="https://www.linkedin.com/in/brunojoao/"
+      target="_blank">
+        <mat-icon fontIcon="fa-linkedin"></mat-icon>
+      </a>
+
+      &nbsp;
+      &nbsp;
+
+      <a href="https://stackoverflow.com/users/2009212/vinagreti"
+      target="_blank">
+        <mat-icon fontIcon="fa-stack-overflow"></mat-icon>
+      </a>
+
+      &nbsp;
+      &nbsp;
+
+    </span>
+
+  </div>
 </mat-toolbar>
 
-
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="push" opened="false">
+    <div class="scrolling-content">
+      <p><a mat-button routerLink="about">about</a></p>
+      <p><a mat-button routerLink="blog">blog</a></p>
+      <p><a mat-button routerLink="contact">contact</a></p>
+      <p><a mat-button routerLink="portfolio">portfolio</a></p>
+    </div>
+  </mat-sidenav>
+  <div class="scrolling-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

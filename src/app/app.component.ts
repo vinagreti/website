@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 
 @Component({
@@ -9,9 +9,15 @@ import { MatIconRegistry } from '@angular/material';
 export class AppComponent {
   title = 'app';
 
+  @ViewChild('sidenav') sidenav;
+
   constructor(
     private matIconRegistry: MatIconRegistry
   ) {
     matIconRegistry.setDefaultFontSetClass('fa');
+  }
+
+  teste() {
+    this.sidenav.toggle();
   }
 }

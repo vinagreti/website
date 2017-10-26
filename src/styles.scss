@@ -1,8 +1,11 @@
+@import './app/style/constants';
+
 /* You can add global styles to this file, and also import other style files */
 body {
   padding: 0;
   margin: 0;
-  min-width: 600px;
+  min-width: $minimunWidth;
+  height: 100vh;
 }
 /*
  * Anchor without styles
@@ -52,7 +55,24 @@ input:-webkit-autofill {
 * Layout classes
 */
 .default-content-container{
-  padding: 16px;
-  max-width: 1040px;
+  padding: 16px 0;
+  max-width: $smallToMedium;
   margin: auto;
+}
+
+
+@media screen and (max-width: $smallToMedium) {
+  .hide-medium {
+    display: none;
+  }
+
+  .default-content-container{
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width: $smallToMedium) {
+  .show-medium {
+    display: none;
+  }
 }

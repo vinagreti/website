@@ -1,7 +1,29 @@
-.toolbar-icon {
-  padding: 0 14px;
+@import './style/constants';
+
+.sidenav-toolbar{
+  .toolbar-content {
+    width: 100%;
+    max-width: $smallToMedium;
+    margin: auto;
+    display: flex;
+
+    .toolbar-spacer {
+      flex: 1 1 auto;
+    }
+
+    .toolbar-name, mat-icon{
+      color: white;
+    }
+  }
 }
 
-.toolbar-spacer {
-  flex: 1 1 auto;
+.sidenav-container .mat-sidenav-content,
+.sidenav-container mat-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.scrolling-content {
+  overflow: auto;
+  height: 100vh;
 }
