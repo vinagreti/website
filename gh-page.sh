@@ -2,18 +2,14 @@
 
 git add --all
 git add -u
-git commit -m "Build GH PAGES - To revert this, squash the last commit."
-ng build --prod --output-path="./../dist-foeco.temp" --aot --base-href="https://vinagreti.github.io/"
-cp ./index.html ./../dist-foeco.temp/404.html
-cp ./gh-page.sh ./../dist-foeco.temp/gh-page.sh
+git commit -m "Saving/Commiting current branch"
+ng build --prod --aot --base-href="https://vinagreti.github.io/"
+cp ./index.html ./dist/404.html
 
-git checkout master
+git checkout $1
 rm -r ./*
-
-mv ./../dist-foeco.temp/* ./
+mv ./dist/* ./
 git add --all
-git add -u
-git commit -m "Buil production from master.sh"
+git commit -m "Buil $1 from ${git branch}"
 git push --force
-rm -r ./../dist-foeco.temp
 git checkout develop
