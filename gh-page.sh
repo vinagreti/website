@@ -7,6 +7,7 @@ ng build --prod --aot --base-href="https://vinagreti.github.io/"
 cp ./index.html ./dist/404.html
 
 git checkout $1
+wait
 rm -r ./*
 mv ./dist/* ./
 git add --all
