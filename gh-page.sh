@@ -7,7 +7,7 @@ ng build --prod --aot --base-href="https://vinagreti.github.io/" &&
 cp ./index.html ./dist/404.html &&
 mv dist gh-page
 git checkout $1 &&
-ls | grep -v file.txt | parallel rm &&
+ls | grep -v gh-page | parallel rm &&
 git add --all &&
 git commit -m "Buil $1 from ${git branch}" &&
 git push --force &&
