@@ -2,7 +2,6 @@
 
 # compiled output
 /dist
-/gh-page
 /tmp
 /out-tsc
 
