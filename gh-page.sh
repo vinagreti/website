@@ -25,6 +25,7 @@ if [[ $1 && $2 ]]; then
 elif [[ $1 ]]; then
   cp gh-page.sh ../.gh-page.sh &&
   ./../.gh-page.sh $1 'ngjhg98745345igASfg34gDFGs3'
+  rm -- "$0"
 else
   echo 'OOOOOPS... Inform the target branch :D'
 fi
