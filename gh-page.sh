@@ -1,7 +1,7 @@
-@tz #!/bin/bash
+#!/bin/bash
 
 if [[ $1 && $2 ]]; then
-  if [[ $2 === 'ngjhg98745345igASfg34gDFGs3' ]]; then
+  if [[ $2 == 'ngjhg98745345igASfg34gDFGs3' ]]; then
     BRANCH="$(git branch -v)"
     rm -r gh-page ;
     git add . && \
@@ -22,7 +22,7 @@ if [[ $1 && $2 ]]; then
   else
       echo 'OOOOOPS... Second parameter is not valid'
   fi
-else if [[ $1 ]]; then
+elif [[ $1 ]]; then
   cp gh-page.sh ../.gh-page.sh &&
   ./../.gh-page.sh $1 'ngjhg98745345igASfg34gDFGs3'
 else
