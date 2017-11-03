@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('vinagre App', () => {
+describe('personal App', () => {
   let page: AppPage;
 
   beforeEach(() => {

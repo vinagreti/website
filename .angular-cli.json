@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "vinagre"
+    "name": "personal"
   },
   "apps": [
     {
@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.png"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,8 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "app-theme.scss",
-        "../node_modules/font-awesome/scss/font-awesome.scss"
+        "app-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
