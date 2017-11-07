@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 
   getBgImage() {
     const ramdomImageIndex = Math.round(Math.random() * (bgImages.length - 1));
-    console.log('ddddddddd', ramdomImageIndex);
     return bgImages[ramdomImageIndex];
   }
 

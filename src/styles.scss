@@ -42,6 +42,14 @@ input:-webkit-autofill {
 }
 
 /*
+* Material Dialog fix width setting problem fixing in 500 the dialog;
+*/
+.mat-dialog-content, .mat-form-field{
+  width: 500px;
+}
+
+
+/*
 * Material Overlay Pan fix mobile dialog positioning
 */
 .cdk-overlay-pane{

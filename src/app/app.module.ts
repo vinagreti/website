@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ShareModule } from './share/share.module';
+import { LocalDatabaseModule } from './shared/services/local-database/local-database.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ShareModule } from './share/share.module';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    LocalDatabaseModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,

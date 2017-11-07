@@ -8,9 +8,9 @@
 @include mat-core();
 
 // Default App Custom theme
-$primary: mat-palette($mat-light-blue, 700);
-$warn: mat-palette($mat-orange, 900);
-$accent: mat-palette($mat-red);
+$primary: mat-palette($mat-blue, 700);
+$warn: mat-palette($mat-orange, 700);
+$accent: mat-palette($mat-light-green, 500);
 $green-theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($green-theme);
