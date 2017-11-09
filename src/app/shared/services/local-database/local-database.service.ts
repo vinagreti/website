@@ -5,13 +5,22 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class LocalDatabaseService {
 
+  collections: Array<Collection> = [];
+
   constructor() {
     console.log('LocalDatabaseService started');
     localDatabase.checkStorageAvailability();
   }
 
-  collection = (key) => {
-    return new Collection(key);
+  collection = (name) => {
+    let collection = this.collections.find(item =>  item.name === name);
+    if (collection) {
+      return collection;
+    } else {
+      collection = new Collection(name);
+      this.collections.push(collection);
+      return collection;
+    }
   }
 
 }
@@ -19,17 +28,32 @@ export class LocalDatabaseService {
 
 class Collection {
 
-  documents = [];
+  private docs: Array<any> = [];
 
-  constructor(private collectionName) {
-    this.documents = localDatabase.get(collectionName) || [];
+  constructor(public name: string) {
+    const inMemoryDocs = localDatabase.get(name);
+    if (inMemoryDocs) {
+      this.docs = localDatabase.get(name);
+    } else {
+      this.docs = [];
+    }
   }
 
-  push = (data) => {
-    data.id = Date.now();
-    this.documents.push(data);
-    localDatabase.set(this.collectionName, this.documents);
-    return Observable.of(data);
+  documents(): Observable<Array<any>> {
+    return Observable.of(this.docs);
+  }
+
+  create(object: any): Observable<any> {
+    object['id'] = Date.now();
+    this.docs.push(object);
+    localDatabase.set(this.name, this.docs);
+    return Observable.of(object);
+  }
+
+  delete(object: any): Observable<any> {
+    this.docs = this.docs.map(document => document['id'] !== object['id']);
+    localDatabase.set(this.name, this.docs);
+    return Observable.of(object);
   }
 
 }
@@ -48,7 +72,7 @@ const localDatabase = {
       sessionStorage.removeItem(testKey);
       return true;
     } catch (e) {
-      console.error('LocalDatabaseService => Cannot find ' + type + ' on this browser.');
+      console.error('LocalDatabaseServiceError: Cannot find ' + type + ' on this browser.');
       return false;
     }
   },
@@ -57,7 +81,6 @@ const localDatabase = {
     if (!key) {
       return;
     }
-
     const sessionValue = sessionStorage.getItem(key);
     if (sessionValue) {
       return JSON.parse(sessionValue);
