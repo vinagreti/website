@@ -11,11 +11,6 @@ export class ShareService {
       width: '550px',
       data: { name: 'this.name', animal: 'this.animal' }
     });
-
-    dialogRef.afterClosed()
-    .subscribe(status => {
-      console.log('Share dilog closed with', status);
-    });
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 import { LocalDatabaseService } from './../shared/services/local-database/local-database.service';
 
 class Post {
@@ -32,7 +33,8 @@ export class ShareComponent implements OnInit {
 
   constructor(
               private formBuilder: FormBuilder,
-              private db: LocalDatabaseService) { }
+              private db: LocalDatabaseService,
+              @Optional() private dialogRef: MatDialogRef<ShareComponent>) { }
 
   ngOnInit() {
     this.initForm();
@@ -47,15 +49,19 @@ export class ShareComponent implements OnInit {
   }
 
   share() {
-    console.log('shre');
     const link = this.shareForm.controls.link.value;
     const image = this.shareForm.controls.image.value;
     const text = this.shareForm.controls.text.value;
     const post = new Post({link, text, image});
-    this.db.collection(this.resourceName)
+    const subscription = this.db.collection(this.resourceName)
     .create(post)
-    .subscribe((res: Post) => {
-      console.log(`Shared with ID ${res.id}`);
+    .subscribe((res: any) => {
+      if (res) {
+        if (this.dialogRef) {
+          this.dialogRef.close('ok');
+        }
+        subscription.unsubscribe();
+      }
     });
   }
 
