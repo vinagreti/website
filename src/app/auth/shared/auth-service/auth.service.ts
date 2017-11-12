@@ -2,7 +2,8 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { User } from './../../../user/user.model';
-import { JsonLocalStorage, LocalDatabaseService } from './../../../shared/services/local-database/local-database.service';
+import { JsonLocalStorage } from './../../../shared/services/local-database/local-database.service';
+import { LocalFirebaseService } from './../../../shared/services/local-firebase/local-firebase.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
@@ -14,7 +15,7 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    private db: LocalDatabaseService
+    private localFirebase: LocalFirebaseService
   ) {
     console.log('AuthService started');
     this.subscribeToUser();
@@ -33,9 +34,9 @@ export class AuthService {
   }
 
   private subscribeToNgFire() {
-    const user = firebase.auth().currentUser;
-    console.log('subscribeToNgFire', user);
-    // this.setUserAuth(user);
+    this.localFirebase.authStatus.subscribe((user) => {
+      this.handleLoginSuccess({user});
+    });
   }
 
   private subscribeToStorage() {
@@ -49,7 +50,7 @@ export class AuthService {
 
   private handleLoginSuccess = (authResponse) => {
     const user = this._user || new User();
-    user.auth = authResponse;
+    user.auth = authResponse.user;
     user.logged = true;
     user.name = authResponse.user.displayName;
     user.picture = authResponse.user.photoURL;

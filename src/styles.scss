@@ -64,24 +64,7 @@ input:-webkit-autofill {
 * Layout classes
 */
 .default-content-container{
-  padding: 16px 0;
-  max-width: $maxDesktopWidth;
+  padding: 16px;
+  max-width: $minDesktopWidth;
   margin: auto;
-}
-
-
-@media screen and (max-width: $maxDesktopWidth) {
-  .hide-medium {
-    display: none;
-  }
-
-  .default-content-container{
-    padding: 16px;
-  }
-}
-
-@media screen and (min-width: $maxDesktopWidth) {
-  .show-medium {
-    display: none;
-  }
 }

@@ -12,11 +12,11 @@
 
     <span class="toolbar-spacer"></span>
 
-    <span class="hide-medium">
+    <span fxHide.lt-md="true">
       <a mat-button routerLink="about">about</a>
       <a mat-button routerLink="blog">blog</a>
       <a mat-button routerLink="contact">contact</a>
-      <a mat-button routerLink="portfolio">dashboard</a>
+      <a mat-button routerLink="portfolio" *ngIf="(user | async)?.logged">dashboard</a>
       <a mat-button routerLink="portfolio">portfolio</a>
     </span>
 
