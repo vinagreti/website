@@ -51,7 +51,7 @@ export class AuthService {
   private handleLoginSuccess = (authResponse) => {
     const user = this._user || new User();
     user.auth = authResponse.user;
-    user.logged = true;
+    user.logged = authResponse.user ? true : false;
     user.name = authResponse.user.displayName;
     user.picture = authResponse.user.photoURL;
     user.uid = authResponse.user.uid;
