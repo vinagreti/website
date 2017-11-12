@@ -1,6 +1,7 @@
 @import './style/constants';
 
 .sidenav-toolbar{
+  width: 100%;
   .toolbar-content {
     width: 100%;
     max-width: $maxDesktopWidth;
@@ -17,17 +18,36 @@
   }
 }
 
-.sidenav-container .mat-sidenav-content,
-.sidenav-container mat-sidenav {
-  display: flex;
-  overflow: visible;
+
+.mat-sidenav-container{
+
+  min-height: 100vh;
+
+  .mat-sidenav {
+    display: flex;
+    overflow: visible;
+    width: 300px;
+  }
+
+  .scrolling-content {
+    overflow: auto;
+    width: 100%;
+
+    ol{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      padding-top: 16px;
+    }
+
+    li, li a{
+      width: 100%;
+      font-size: 24px;
+      text-align: left;
+      line-height: 48px;
+    }
+  }
 }
 
-.scrolling-content {
-  overflow: auto;
-  height: 100vh;
-}
 
-.top-container {
- min-height: 100vh;
-}

@@ -1,14 +1,14 @@
 <mat-toolbar color="primary" class="sidenav-toolbar" (click)="sidenav.close()">
   <div class="toolbar-content">
 
-    <a (click)="sidenav.toggle()" href="javascript:void(0)" class="show-medium">
+    <a (click)="sidenav.toggle()" href="javascript:void(0)">
       <mat-icon fontIcon="fa-bars"></mat-icon>
     </a>
 
     &nbsp;
     &nbsp;
 
-    <span class="click" routerLink="/">{{(user | async).logged ? (user | async)?.name : 'Of Me'}}</span>
+    <span class="click" routerLink="/">{{(user | async)?.logged ? (user | async)?.name : 'Of Me'}}</span>
 
     <span class="toolbar-spacer"></span>
 
@@ -22,7 +22,7 @@
 
     <span class="toolbar-spacer"></span>
 
-    <span>
+    <span fxHide.xs="true">
       <a href="https://www.linkedin.com/in/brunojoao/"
       target="_blank">
         <mat-icon fontIcon="fa-linkedin"></mat-icon>
@@ -47,39 +47,55 @@
       &nbsp;
       &nbsp;
 
-      <a href="javascript:void(0);" (click)="shareSomething()">
+      <a href="javascript:void(0);" (click)="shareSomething()" *ngIf="(user | async)?.logged">
         <mat-icon fontIcon="fa-plus"></mat-icon>
       </a>
-
-      &nbsp;
-      &nbsp;
-
-      <a href="javascript:void(0);" routerLink="auth" *ngIf="!(user | async).logged">
-        <mat-icon fontIcon="fa-sign-in"></mat-icon>
-      </a>
-
-      &nbsp;
-      &nbsp;
-
-      <a href="javascript:void(0);" (click)="logout()" *ngIf="(user | async).logged">
-        <mat-icon fontIcon="fa-sign-out"></mat-icon>
-      </a>
-
-      &nbsp;
-      &nbsp;
     </span>
-
   </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="push" opened="false">
     <div class="scrolling-content">
-      <p><a mat-button routerLink="about">about</a></p>
-      <p><a mat-button routerLink="blog">blog</a></p>
-      <p><a mat-button routerLink="contact">contact</a></p>
-      <p><a mat-button routerLink="portfolio">portfolio</a></p>
-      <p><a mat-button routerLink="auth">Signin</a></p>
+      <ol>
+        <li><a mat-button routerLink="about">
+          <mat-icon fontIcon="fa-user"></mat-icon> about
+        </a></li>
+        <li><a mat-button routerLink="portfolio">
+          <mat-icon fontIcon="fa-hashtag"></mat-icon> portfolio
+        </a></li>
+        <li><a mat-button routerLink="blog">
+          <mat-icon fontIcon="fa-commenting"></mat-icon> blog
+        </a></li>
+        <li><a mat-button routerLink="contact">
+          <mat-icon fontIcon="fa-envelope"></mat-icon> contact
+        </a></li>
+        <li><a mat-button routerLink="dashboard" *ngIf="(user | async)?.logged">
+          <mat-icon fontIcon="fa-dashboard"></mat-icon> dashboard
+        </a></li>
+
+        <li><a mat-button href="https://www.linkedin.com/in/brunojoao/" target="_blank">
+          <mat-icon fontIcon="fa-linkedin"></mat-icon> linkedin
+        </a></li>
+
+        <li><a mat-button href="https://www.npmjs.com/org/tzd" target="_blank">
+          <mat-icon fontIcon="fa-code"></mat-icon> npm
+        </a></li>
+
+        <li><a mat-button href="https://stackoverflow.com/users/2009212/vinagreti" target="_blank">
+          <mat-icon fontIcon="fa-stack-overflow"></mat-icon> stack-overflow
+        </a></li>
+
+        <hr>
+
+        <li><a mat-button routerLink="auth" *ngIf="!(user | async)?.logged">
+          <mat-icon fontIcon="fa-sign-in"></mat-icon> signin
+        </a></li>
+
+        <li><a mat-button (click)="logout()" *ngIf="(user | async)?.logged">
+          <mat-icon fontIcon="fa-sign-out"></mat-icon> signout
+        </a></li>
+      </ol>
     </div>
   </mat-sidenav>
   <div class="top-container">

@@ -4,6 +4,18 @@
 
 // Apply the theme.
 @mixin app-components-theme($theme) {
+  $accent: map-get($theme, accent);
+  $accent-color: mat-color($accent);
+  $accent-contrast: mat-contrast($accent, 500);
+
+  // Placeholder colors. Required is used for the `*` star shown in the placeholder.
 	//@include user-theme($theme);
+
+  .scrolling-content {
+    background-color: $accent-color;
+    li, li a{
+      color: $accent-contrast;
+    }
+  }
 }
 

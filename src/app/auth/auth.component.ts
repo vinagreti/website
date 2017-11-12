@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
     private router: Router
   ) {
     this.title = 'Entrar';
-    this.subtitle = 'Acesse a Feira Orgânica com uma de suas redes sociais e tenha acesso todo o nosso conteúdo.';
+    this.subtitle = 'Acesse a página de administração de seu perfil';
   }
 
   ngOnInit() {}
