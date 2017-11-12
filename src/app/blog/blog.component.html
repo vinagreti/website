@@ -1,7 +1,20 @@
 <div class="default-content-container">
   <h1>Blog</h1>
 
-  <ol>
-    <li *ngFor="let post of posts | async"><button type="button" (click)="delete(post)">DELETE</button> - {{post.text}}</li>
+  <ol fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between">
+    <li fxFlex="48%" fxFlex.lt-md="100%" *ngFor="let post of posts | async">
+      <a [href]="post.link" target="_blank">
+        <mat-card>
+          <img mat-card-image [src]="post.image">
+          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-content>
+            {{post.text}}
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="warn" type="button" (click)="delete(post)">DELETE</button>
+          </mat-card-actions>
+        </mat-card>
+      </a>
+    </li>
   </ol>
 </div>

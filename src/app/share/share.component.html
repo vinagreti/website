@@ -8,6 +8,10 @@
     <img *ngIf="shareForm.controls.image.valid" [src]="shareForm.controls.image.value">
 
     <mat-form-field>
+      <input type="text" matInput placeholder="title" formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field>
       <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
     </mat-form-field>
 

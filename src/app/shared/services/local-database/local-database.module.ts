@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalDatabaseService } from './local-database.service';
+import { LocalFirebaseModule } from './../local-firebase/local-firebase.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    LocalFirebaseModule,
   ],
   providers: [
-    LocalDatabaseService
+    LocalDatabaseService,
   ]
 })
 export class LocalDatabaseModule { }

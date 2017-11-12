@@ -8,7 +8,7 @@
     &nbsp;
     &nbsp;
 
-    <span class="click" routerLink="/">Bruno João</span>
+    <span class="click" routerLink="/">{{(user | async).logged ? (user | async)?.name : 'Of Me'}}</span>
 
     <span class="toolbar-spacer"></span>
 
@@ -16,6 +16,7 @@
       <a mat-button routerLink="about">about</a>
       <a mat-button routerLink="blog">blog</a>
       <a mat-button routerLink="contact">contact</a>
+      <a mat-button routerLink="portfolio">dashboard</a>
       <a mat-button routerLink="portfolio">portfolio</a>
     </span>
 
@@ -53,6 +54,19 @@
       &nbsp;
       &nbsp;
 
+      <a href="javascript:void(0);" routerLink="auth" *ngIf="!(user | async).logged">
+        <mat-icon fontIcon="fa-sign-in"></mat-icon>
+      </a>
+
+      &nbsp;
+      &nbsp;
+
+      <a href="javascript:void(0);" (click)="logout()" *ngIf="(user | async).logged">
+        <mat-icon fontIcon="fa-sign-out"></mat-icon>
+      </a>
+
+      &nbsp;
+      &nbsp;
     </span>
 
   </div>
@@ -65,9 +79,10 @@
       <p><a mat-button routerLink="blog">blog</a></p>
       <p><a mat-button routerLink="contact">contact</a></p>
       <p><a mat-button routerLink="portfolio">portfolio</a></p>
+      <p><a mat-button routerLink="auth">Signin</a></p>
     </div>
   </mat-sidenav>
-  <div class="scrolling-content">
+  <div class="top-container">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

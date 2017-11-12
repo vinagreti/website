@@ -8,12 +8,14 @@ class Post {
   link: string;
   image: string;
   text: string;
+  title: string;
 
   constructor(data: any = {}) {
     if (data.id) { this.id = data.id; }
     if (data.link) { this.link = data.link; }
     if (data.image) { this.image = data.image; }
     if (data.text) { this.text = data.text; }
+    if (data.title) { this.title = data.title; }
   }
 }
 
@@ -45,6 +47,7 @@ export class ShareComponent implements OnInit {
       link: ['', Validators.pattern(this.urlPattern)],
       image: ['', Validators.pattern(this.urlPattern)],
       text: [],
+      title: [],
     });
   }
 
@@ -52,7 +55,8 @@ export class ShareComponent implements OnInit {
     const link = this.shareForm.controls.link.value;
     const image = this.shareForm.controls.image.value;
     const text = this.shareForm.controls.text.value;
-    const post = new Post({link, text, image});
+    const title = this.shareForm.controls.title.value;
+    const post = new Post({link, text, title, image});
     const subscription = this.db.collection(this.resourceName)
     .create(post)
     .subscribe((res: any) => {

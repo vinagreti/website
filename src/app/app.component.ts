@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { ShareService } from './share/share.service';
+import { AuthService } from './auth/shared/auth-service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,28 @@ import { ShareService } from './share/share.service';
 })
 export class AppComponent {
   title = 'app';
+  user;
 
   @ViewChild('sidenav') sidenav;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private  shareService: ShareService
+    private  shareService: ShareService,
+    private auth: AuthService
   ) {
-    matIconRegistry.setDefaultFontSetClass('fa');
+    this.configureIconFont();
+    this.user = this.auth.user;
   }
 
-  teste() {
-    this.sidenav.toggle();
+  private configureIconFont() {
+    this.matIconRegistry.setDefaultFontSetClass('fa');
   }
 
   shareSomething = () => {
     this.shareService.open();
+  }
+
+  logout = () => {
+    this.auth.logout();
   }
 }

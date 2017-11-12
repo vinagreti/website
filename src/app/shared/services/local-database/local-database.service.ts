@@ -1,21 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import * as firebase from 'firebase';
-import 'firebase/firestore';
-import { environment } from './../../../../environments/environment';
 import 'rxjs/add/observable/of';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { LocalFirebaseService } from './../local-firebase/local-firebase.service';
 
 @Injectable()
 export class LocalDatabaseService {
 
-  collections: Array<Collection> = [];
-  private dbDriver;
+  dbDriver;
 
-  constructor() {
+  collections: Array<Collection> = [];
+
+  constructor(private fbS: LocalFirebaseService) {
     console.log('LocalDatabaseService started');
-    this.dbDriver = new FirebaseDriver();
-    localDatabase.checkStorageAvailability();
+    this.dbDriver = new FirebaseDriver(fbS);
+    JsonLocalStorage.checkStorageAvailability();
   }
 
   collection = (key) => {
@@ -32,48 +31,43 @@ export class LocalDatabaseService {
 
 export class Collection {
 
-  private docs: Array<any> = [];
+  protected docs: Array<any> = [];
+  protected _docs: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
 
   constructor(public key: string) {
-    const inMemoryDocs = localDatabase.get(key);
+    const inMemoryDocs = JsonLocalStorage.get(key);
     if (inMemoryDocs) {
-      this.docs = localDatabase.get(key);
+      this.docs = JsonLocalStorage.get(key);
     } else {
       this.docs = [];
     }
   }
 
   documents(): Observable<Array<any>> {
-    return Observable.of(this.docs);
+    return this._docs;
   }
 
-  create(object: any): Observable<any> {
+  create = (object): Observable<any> => {
     object['id'] = Date.now();
     this.docs.push(object);
-    localDatabase.set(this.key, this.docs);
+    JsonLocalStorage.set(this.key, this.docs);
     return Observable.of(object);
   }
 
-  delete(object: any): Observable<any> {
+  delete = (object: any): Observable<any> => {
     this.docs = this.docs.map(document => document['id'] !== object['id']);
-    localDatabase.set(this.key, this.docs);
+    JsonLocalStorage.set(this.key, this.docs);
     return Observable.of(object);
   }
 
 }
 
-class FirebaseCollection {
-
-  private docs: Array<any> = [];
-  private _docs: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+class FirebaseCollection extends Collection {
 
   constructor(public key: string, private db) {
+    super(key);
     this.subscribeToCollection();
     this.loadDocs();
-  }
-
-  documents = (): Observable<Array<any>> => {
-    return this._docs;
   }
 
   create = (object): Observable<any> => {
@@ -124,28 +118,18 @@ class FirebaseCollection {
   }
 }
 
-class FirebaseDriver {
+export class FirebaseDriver {
 
-  db;
-
-  constructor() {
+  constructor(private localFirebaseService: LocalFirebaseService) {
     console.log('LocalDatabaseService FirebaseDriver started');
-    this.startFirebase();
   }
 
   collection = (key) => {
-    return new FirebaseCollection(key, this.db);
-  }
-
-  private startFirebase() {
-    firebase.initializeApp(environment.firebase_config);
-    firebase.firestore().enablePersistence();
-    this.db = firebase.firestore();
+    return new FirebaseCollection(key, this.localFirebaseService);
   }
 }
 
-
-const localDatabase = {
+export const JsonLocalStorage = {
 
   checkStorageAvailability: () => {
     let type = '';
@@ -186,7 +170,7 @@ const localDatabase = {
       if (value) {
         localStorage.setItem(key, JSON.stringify(value));
       } else {
-        localDatabase.remove(key);
+        JsonLocalStorage.remove(key);
       }
       return true;
     } catch (e) {

@@ -1,4 +1,10 @@
-$minimunWidth: 375px;
-$smallToMedium: 767px;
-$mediumToBig: 1080px;
-$BigToFull: 1920px;
+$minPhoneWidth: 320px;
+$maxPhoneWidth: 377px;
+$minTabletWidth: 376px;
+$maxTabletWidth: 767px;
+$minDesktopWidth: 768px;
+$maxDesktopWidth: 1080px;
+$minFullWidth: 1081px;
+$maxFullWidth: 1920px;
+$minSuperwideWidth: 1921px;
+$maxSuperwideWidth: 2500px;

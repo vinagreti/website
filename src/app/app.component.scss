@@ -3,7 +3,7 @@
 .sidenav-toolbar{
   .toolbar-content {
     width: 100%;
-    max-width: $smallToMedium;
+    max-width: $maxDesktopWidth;
     margin: auto;
     display: flex;
 
@@ -26,4 +26,8 @@
 .scrolling-content {
   overflow: auto;
   height: 100vh;
+}
+
+.top-container {
+ min-height: 100vh;
 }

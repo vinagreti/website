@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ShareModule } from './share/share.module';
 import { LocalDatabaseModule } from './shared/services/local-database/local-database.module';
+import { AuthServiceModule } from './auth/shared/auth-service/auth-service.module';
+import { CanActivateGuardService } from './shared/services/guard/can-activate-guard.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { LocalDatabaseModule } from './shared/services/local-database/local-data
   ],
   imports: [
     AppRoutingModule,
+    AuthServiceModule,
     BrowserModule,
     BrowserAnimationsModule,
     LocalDatabaseModule,
@@ -30,6 +33,9 @@ import { LocalDatabaseModule } from './shared/services/local-database/local-data
   ],
   bootstrap: [
     AppComponent
+  ],
+  providers: [
+    CanActivateGuardService
   ]
 })
 export class AppModule {}

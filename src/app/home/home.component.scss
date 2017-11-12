@@ -31,7 +31,7 @@
   z-index: -1;
 }
 
-@media screen and (max-width: $smallToMedium) {
+@media screen and (max-width: $maxDesktopWidth) {
   .home-title{
     font-size: 3em;
   }
@@ -56,7 +56,7 @@
   }
 }
 
-@media screen and (max-width: ($smallToMedium - $minimunWidth)/2) {
+@media screen and (max-width: ($maxDesktopWidth - $minPhoneWidth)/2) {
   .home-title{
     font-size: 2em;
   }
@@ -65,7 +65,7 @@
   }
 }
 
-@media screen and (max-width: $minimunWidth) {
+@media screen and (max-width: $minPhoneWidth) {
   .home-title{
     font-size: 2em;
   }
