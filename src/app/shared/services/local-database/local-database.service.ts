@@ -9,6 +9,8 @@ export class LocalDatabaseService {
 
   dbDriver;
 
+  dbScope; // when inside a user profile ex: host/'bruno'/about
+
   collections: Array<Collection> = [];
 
   constructor(private fbS: LocalFirebaseService) {
@@ -17,12 +19,12 @@ export class LocalDatabaseService {
     JsonLocalStorage.checkStorageAvailability();
   }
 
-  collection = (key) => {
-    let collection = this.collections.find(item =>  item.key === key);
+  collection = (collectionName) => {
+    let collection = this.collections.find(item =>  item.collectionName === collectionName);
     if (collection) {
       return collection;
     } else {
-      collection = this.dbDriver.collection(key);
+      collection = this.dbDriver.collection(collectionName);
       this.collections.push(collection);
       return collection;
     }
@@ -31,79 +33,134 @@ export class LocalDatabaseService {
 
 export class Collection {
 
-  protected docs: Array<any> = [];
   protected _docs: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
 
-  constructor(public key: string) {
-    const inMemoryDocs = JsonLocalStorage.get(key);
-    if (inMemoryDocs) {
-      this.docs = JsonLocalStorage.get(key);
-    } else {
-      this.docs = [];
-    }
+  constructor(public collectionName: string) {
+    this.subscribeToDocs();
+    this.loadDataFromLocalStorage();
   }
 
   documents(): Observable<Array<any>> {
     return this._docs;
   }
 
-  create = (object): Observable<any> => {
-    object['id'] = Date.now();
-    this.docs.push(object);
-    JsonLocalStorage.set(this.key, this.docs);
-    return Observable.of(object);
+  save(document): Promise<any> {
+    if (document) {
+      if (document.id) {
+        return this.create(document);
+      } else {
+        return this.update(document);
+      }
+    }
   }
 
-  delete = (object: any): Observable<any> => {
-    this.docs = this.docs.map(document => document['id'] !== object['id']);
-    JsonLocalStorage.set(this.key, this.docs);
-    return Observable.of(object);
+  delete(document: any): Promise<boolean> {
+    return new Promise<any>((res, rej) => {
+      const docs = this.loadDataFromLocalStorage();
+      const inMemmoryDoc = docs.find(_document => _document.id === document.id);
+    });
   }
 
+  private subscribeToDocs() {
+    this._docs.subscribe(docs => {
+      JsonLocalStorage.set(this.collectionName, docs);
+    });
+  }
+
+  private loadDataFromLocalStorage() {
+    const inMemoryDocs = JsonLocalStorage.get(this.collectionName);
+    this._docs.next(inMemoryDocs);
+    return this._docs.getValue();
+  }
+
+
+  create(document: any): Promise<any> {
+    return new Promise<any>((res, rej) => {
+      document.id = document.id || Date.now();
+      const docs = this.loadDataFromLocalStorage();
+      docs.push(document);
+      res(this._docs.next(docs));
+    });
+  }
+
+  update(document: any, upsert = false): Promise<any> {
+    return new Promise<any>((res, rej) => {
+      const docs = this.loadDataFromLocalStorage();
+      const inMemmoryDoc = docs.find(_document => _document.id === document.id);
+      if (inMemmoryDoc) {
+        res(this._docs.next(docs));
+      } else {
+        if (upsert) {
+          this.create(document).then(res, rej);
+        } else {
+          rej('Document does not exist. Enable upsert to insert documents when they are not found within the collection.');
+        }
+      }
+    });
+  }
 }
 
 class FirebaseCollection extends Collection {
 
-  constructor(public key: string, private db) {
-    super(key);
-    this.subscribeToCollection();
+  constructor(public collectionName: string, private db) {
+    super(collectionName);
     this.loadDocs();
   }
 
-  create = (object): Observable<any> => {
-    const operationObservable = new BehaviorSubject<any>(null);
-    const objectCopy = JSON.parse(JSON.stringify(object));
-    this.db.collection(this.key).add(objectCopy)
-    .then((docRef) => {
-      object.id = docRef.id;
-      this.docs.push(object);
-      this._docs.next(this.docs);
-      operationObservable.next(docRef);
-    })
-    .catch((error) => {
-      operationObservable.error(error);
+  create(document): Promise<any> {
+    return new Promise<any>((res, rej) => {
+      const documentCopy = JSON.parse(JSON.stringify(document));
+      this.db.firebaseDb.collection(this.collectionName).add(documentCopy)
+      .then((docRef) => {
+        document.id = docRef.id;
+        super.save(document);
+        res(docRef);
+      })
+      .catch((error) => {
+        rej(error);
+      });
     });
-    return operationObservable;
   }
 
-  delete = (object: any): Observable<any> => {
-    const operationObservable = new BehaviorSubject<any>(null);
-    const docRef = this.getRef(object.id);
-    this.db.collection(this.key).doc(docRef.id).delete().then((res) => {
-      this.docs = this.docs.filter(doc => doc.id !== object.id);
-      this._docs.next(this.docs);
-      operationObservable.next(true);
+  delete(document: any): Promise<any> {
+    return new Promise<any>((res, rej) => {
+      const docRef = this.getRef(document.id);
+      this.db.firebaseDb.collection(this.collectionName)
+      .doc(docRef.id)
+      .delete()
+      .then((res) => {
+        super.delete(document);
+        res(true);
+      })
+      .catch((error) => {
+        rej(error);
+      });
     });
-    return operationObservable;
+  }
+
+  update(document: any): Promise<any> {
+    return new Promise<any>((res, rej) => {
+      const docRef = this.getRef(document.id);
+      this.db.firebaseDb.collection(this.collectionName)
+      .doc(docRef.id)
+      .update()
+      .then((res) => {
+        super.update(document);
+        res(true);
+      })
+      .catch((error) => {
+        rej(error);
+      });
+    });
   }
 
   private getRef(id) {
-    return this.db.collection(this.key).doc(id);
+    return this.db.firebaseDb.collection(this.collectionName).doc(id);
   }
 
   private loadDocs() {
     const docs = [];
-    this.db.collection(this.key).get().then((posts) => {
+    this.db.firebaseDb.collection(this.collectionName).get().then((posts) => {
       posts.forEach((doc) => {
         const document = doc.data();
         document.id = doc.id;
@@ -111,10 +168,6 @@ class FirebaseCollection extends Collection {
       });
       this._docs.next(docs);
     });
-  }
-
-  private subscribeToCollection() {
-    this._docs.subscribe(docs => this.docs = docs);
   }
 }
 
@@ -124,8 +177,8 @@ export class FirebaseDriver {
     console.log('LocalDatabaseService FirebaseDriver started');
   }
 
-  collection = (key) => {
-    return new FirebaseCollection(key, this.localFirebaseService);
+  collection = (collectionName) => {
+    return new FirebaseCollection(collectionName, this.localFirebaseService);
   }
 }
 
@@ -148,15 +201,15 @@ export const JsonLocalStorage = {
     }
   },
 
-  get: (key) => {
-    if (!key) {
+  get: (collectionName) => {
+    if (!collectionName) {
       return;
     }
-    const sessionValue = sessionStorage.getItem(key);
+    const sessionValue = sessionStorage.getItem(collectionName);
     if (sessionValue) {
       return JSON.parse(sessionValue);
     } else {
-      const localValue = localStorage.getItem(key);
+      const localValue = localStorage.getItem(collectionName);
       if (localValue) {
         return JSON.parse(localValue);
       } else {
@@ -165,12 +218,12 @@ export const JsonLocalStorage = {
     }
   },
 
-  set: (key, value) => {
+  set: (collectionName, value) => {
     try {
       if (value) {
-        localStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(collectionName, JSON.stringify(value));
       } else {
-        JsonLocalStorage.remove(key);
+        JsonLocalStorage.remove(collectionName);
       }
       return true;
     } catch (e) {
@@ -178,10 +231,10 @@ export const JsonLocalStorage = {
     }
   },
 
-  remove: (key) => {
+  remove: (collectionName) => {
     try {
-      localStorage.removeItem(key);
-      sessionStorage.removeItem(key);
+      localStorage.removeItem(collectionName);
+      sessionStorage.removeItem(collectionName);
       return true;
     } catch (e) {
       return false;

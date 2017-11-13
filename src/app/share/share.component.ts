@@ -59,12 +59,11 @@ export class ShareComponent implements OnInit {
     const post = new Post({link, text, title, image});
     const subscription = this.db.collection(this.resourceName)
     .create(post)
-    .subscribe((res: any) => {
+    .then((res: any) => {
       if (res) {
         if (this.dialogRef) {
           this.dialogRef.close('ok');
         }
-        subscription.unsubscribe();
       }
     });
   }
