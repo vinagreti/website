@@ -12,13 +12,15 @@ export class ConfiguredProfileGuardService implements CanActivate {
   constructor(private auth: AuthService, private db: LocalDatabaseService, private router: Router) {
     console.log('ConfiguredProfileGuardService started');
     this.auth.user.subscribe(user => {
-      if (user) {
+      if (user && user.auth && user.uid) {
         this.db.collection('profile')
         .document(user.uid)
         .subscribe((profile) => {
-          console.log('user já tem profile', profile);
           if (profile) {
             this.profileConfigured.next(this.isProfileConfigured(user, profile));
+          } else {
+            this.router.navigate(['profile']);
+            this.profileConfigured.next(false);
           }
         });
       }
@@ -30,14 +32,10 @@ export class ConfiguredProfileGuardService implements CanActivate {
   }
 
   isProfileConfigured(user, profile) {
-    if (user.logged) {
-      if (profile.exists) {
-        return true;
-      } else {
-        this.router.navigate(['profile']);
-        return false;
-      }
+    if (profile.exists) {
+      return true;
     } else {
+      this.router.navigate(['profile']);
       return false;
     }
   }

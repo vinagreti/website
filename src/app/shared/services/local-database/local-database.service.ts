@@ -20,12 +20,12 @@ export class LocalDatabaseService {
   }
 
   collection = (collectionName) => {
-    let collection = this.collections.find(item =>  item.collectionName === collectionName);
+    let collection = this.collections[collectionName];
     if (collection) {
       return collection;
     } else {
       collection = this.dbDriver.collection(collectionName);
-      this.collections.push(collection);
+      this.collections[collectionName] = collection;
       return collection;
     }
   }
@@ -59,9 +59,9 @@ export class Collection {
   save(document): Promise<any> {
     if (document) {
       if (document.id) {
-        return this.create(document);
-      } else {
         return this.update(document);
+      } else {
+        return this.create(document);
       }
     }
   }
@@ -69,7 +69,7 @@ export class Collection {
   delete(document: any): Promise<boolean> {
     return new Promise<any>((res, rej) => {
       const docs = this.loadDataFromLocalStorage();
-      const inMemmoryDoc = docs.find(_document => _document.id === document.id);
+      const inMemmoryDoc = docs[document.id];
     });
   }
 
@@ -90,7 +90,7 @@ export class Collection {
     return new Promise<any>((res, rej) => {
       document.id = document.id || Date.now();
       const docs = this.loadDataFromLocalStorage();
-      docs.push(document);
+      docs[document.id] = document;
       res(this.collection.next(docs));
     });
   }
@@ -98,7 +98,7 @@ export class Collection {
   update(document: any, upsert = false): Promise<any> {
     return new Promise<any>((res, rej) => {
       const docs = this.loadDataFromLocalStorage();
-      const inMemmoryDoc = docs.find(_document => _document.id === document.id);
+      const inMemmoryDoc = docs[document.id];
       if (inMemmoryDoc) {
         res(this.collection.next(docs));
       } else {
@@ -142,12 +142,17 @@ class FirebaseCollection extends Collection {
 
   create(document): Promise<any> {
     return new Promise<any>((res, rej) => {
-      const documentCopy = JSON.parse(JSON.stringify(document));
-      this.db.firebaseDb.collection(this.collectionName).add(documentCopy)
-      .then((docRef) => {
+      let operation;
+      if (document.id) {
+        operation = this.db.firebaseDb.collection(this.collectionName).doc(document.id).set(document);
+      } else {
+        operation = this.db.firebaseDb.collection(this.collectionName).add(document);
+      }
+
+      operation.then((docRef) => {
         document.id = docRef.id;
         super.save(document);
-        res(docRef);
+        res(document);
       })
       .catch((error) => {
         rej(error);
@@ -173,13 +178,12 @@ class FirebaseCollection extends Collection {
 
   update(document: any): Promise<any> {
     return new Promise<any>((res, rej) => {
-      const docRef = this.getRef(document.id);
       this.db.firebaseDb.collection(this.collectionName)
-      .doc(docRef.id)
-      .update()
-      .then((res) => {
+      .doc(document.id)
+      .update(document)
+      .then((doc) => {
         super.update(document);
-        res(true);
+        res(document);
       })
       .catch((error) => {
         rej(error);
@@ -197,7 +201,7 @@ class FirebaseCollection extends Collection {
       docs.forEach((doc) => {
         const document = doc.data();
         document.id = doc.id;
-        parsedDocs.push(document);
+        parsedDocs[document.id] = document;
       });
       this.collection.next(parsedDocs);
     });
@@ -217,7 +221,9 @@ class FirebaseDocument extends Document {
     this.db.firebaseDb
     .collection(this.collectionName)
     .doc(this.documentId).onSnapshot((document) => {
-      this.value.next(document);
+      if (document.exists) {
+        this.value.next(document.data());
+      }
     });
   }
 }

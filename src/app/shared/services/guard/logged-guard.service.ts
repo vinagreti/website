@@ -11,7 +11,7 @@ export class LoggedGuardService implements CanActivate {
   constructor(private auth: AuthService) {
     console.log('LoggedGuardService started');
     this.auth.user.subscribe(user => {
-      if (user) {
+      if (user && user.auth && user.uid) {
         this.loginStatus.next(user.logged);
       }
     });
