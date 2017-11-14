@@ -4,12 +4,12 @@ import { AuthService } from './../../../auth/shared/auth-service/auth.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
-export class CanActivateGuardService implements CanActivate {
+export class LoggedGuardService implements CanActivate {
 
   public loginStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   constructor(private auth: AuthService) {
-    console.log('CanActivateGuardService started');
+    console.log('LoggedGuardService started');
     this.auth.user.subscribe(user => {
       if (user) {
         this.loginStatus.next(user.logged);

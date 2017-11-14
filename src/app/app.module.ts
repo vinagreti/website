@@ -11,7 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ShareModule } from './share/share.module';
 import { LocalDatabaseModule } from './shared/services/local-database/local-database.module';
 import { AuthServiceModule } from './auth/shared/auth-service/auth-service.module';
-import { CanActivateGuardService } from './shared/services/guard/can-activate-guard.service';
+import { GuardModule } from './shared/services/guard/guard.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { CanActivateGuardService } from './shared/services/guard/can-activate-gu
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    GuardModule,
     LocalDatabaseModule,
     MatButtonModule,
     MatIconModule,
@@ -37,7 +38,6 @@ import { CanActivateGuardService } from './shared/services/guard/can-activate-gu
     AppComponent
   ],
   providers: [
-    CanActivateGuardService
   ]
 })
 export class AppModule {}

@@ -16,6 +16,7 @@ export const appRoutes: Routes = [
   { path: ':user/contact', loadChildren: './contact/contact.module#ContactModule' },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
   { path: 'portfolio', loadChildren: './portfolio/portfolio.module#PortfolioModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
   { path: ':user/portfolio', loadChildren: './portfolio/portfolio.module#PortfolioModule' },
   { path: '**', component: PageNotFoundComponent }
 ];

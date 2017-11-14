@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CanActivateGuardService } from './../shared/services/guard/can-activate-guard.service';
+import { ConfiguredProfileGuardService } from './../shared/services/guard/configured-profile-guard.service';
 import { DashboardComponent } from './dashboard.component';
 
 const _dashboardRoutes: Routes = [
   {
     path: '',
-    canActivate: [CanActivateGuardService],
+    canActivate: [ConfiguredProfileGuardService],
     component: DashboardComponent
   }
 ];

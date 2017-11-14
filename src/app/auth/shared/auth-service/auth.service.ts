@@ -35,7 +35,7 @@ export class AuthService {
 
   private subscribeToNgFire() {
     this.localFirebase.authStatus.subscribe((user) => {
-      this.handleLoginSuccess({user});
+      this.updateUser({user});
     });
   }
 
@@ -49,6 +49,11 @@ export class AuthService {
   }
 
   private handleLoginSuccess = (authResponse) => {
+    this.updateUser(authResponse);
+    this.router.navigate([this.redirectUrl ? this.redirectUrl : '/']);
+  }
+
+  private updateUser = (authResponse) => {
     const user = this._user || new User();
     user.auth = authResponse.user;
     user.logged = authResponse.user ? true : false;
@@ -56,8 +61,6 @@ export class AuthService {
     user.picture = authResponse.user.photoURL;
     user.uid = authResponse.user.uid;
     user.date = firebase.database.ServerValue.TIMESTAMP;
-
-    this.router.navigate([this.redirectUrl ? this.redirectUrl : '/']);
     this.user.next(user);
   }
 
