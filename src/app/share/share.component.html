@@ -3,10 +3,10 @@
     <mat-dialog-content>
       <h3 mt-dialog-title>Share something</h3>
       <mat-form-field>
-        <select placeholder="type" formControlName="type">
-          <option value="post">post</option>
-          <option value="openSource">openSource</option>
-        </select>
+        <mat-select placeholder="type" formControlName="type">
+          <mat-option value="post">post</mat-option>
+          <mat-option value="openSource">openSource</mat-option>
+        </mat-select>
       </mat-form-field>
     </mat-dialog-content>
   </form>
@@ -27,7 +27,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
+            <textarea matInput rows="2" placeholder="text" formControlName="text"></textarea>
           </mat-form-field>
 
           <mat-form-field>
@@ -46,17 +46,11 @@
         <mat-dialog-content>
           <h4 mt-dialog-title>Share an open source</h4>
           <mat-form-field>
-            <input type="text" matInput placeholder="image" formControlName="image" />
-          </mat-form-field>
-
-          <img *ngIf="openSourcesForm.controls.image.valid" [src]="openSourcesForm.controls.image.value">
-
-          <mat-form-field>
             <input type="text" matInput placeholder="title" formControlName="title" />
           </mat-form-field>
 
           <mat-form-field>
-            <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
+            <textarea matInput rows="2" placeholder="description" formControlName="description"></textarea>
           </mat-form-field>
 
           <mat-form-field>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatSidenav } from '@angular/material';
 import { ShareService } from './share/share.service';
 import { AuthService } from './auth/shared/auth-service/auth.service';
 
@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
   user;
 
-  @ViewChild('sidenav') sidenav;
+  @ViewChild(MatSidenav) sidenav;
 
   constructor(
     private matIconRegistry: MatIconRegistry,

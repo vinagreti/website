@@ -53,9 +53,8 @@ export class ShareComponent implements OnInit {
 
   initOpenSourcesForm() {
     this.openSourcesForm = this.formBuilder.group({
-      link: ['', Validators.pattern(this.urlPattern)],
-      image: ['', Validators.pattern(this.urlPattern)],
-      text: [],
+      link: [''],//, Validators.pattern(this.urlPattern)],
+      description: [],
       title: [],
     });
   }
@@ -75,19 +74,24 @@ export class ShareComponent implements OnInit {
     });
   }
 
-  share() {
-    this.sharePost();
-    this.shareOpenSource();
+  share(type) {
+    switch (type) {
+      case 'post':
+        this.sharePost();
+        break;
+      case 'openSource':
+        this.shareOpenSource();
+        break;
+    }
   }
 
   shareOpenSource() {
+    const description = this.openSourcesForm.controls.description.value;
     const link = this.openSourcesForm.controls.link.value;
-    const image = this.openSourcesForm.controls.image.value;
-    const text = this.openSourcesForm.controls.text.value;
     const title = this.openSourcesForm.controls.title.value;
-    const post = new Post({link, text, title, image});
+    const openSource = new Post({link, title, description});
     const subscription = this.db.collection(this.openSourceCollectionName)
-    .create(post)
+    .create(openSource)
     .then((res: any) => {
       if (res) {
         if (this.dialogRef) {
