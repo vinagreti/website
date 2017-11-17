@@ -9,16 +9,13 @@ export const appRoutes: Routes = [
   { path: '',  component: HomeComponent},
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'about', loadChildren: './about/about.module#AboutModule' },
-  { path: ':user/about', loadChildren: './about/about.module#AboutModule' },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
-  { path: ':user/blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'contact', loadChildren: './contact/contact.module#ContactModule' },
-  { path: ':user/contact', loadChildren: './contact/contact.module#ContactModule' },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
   { path: 'portfolio', loadChildren: './portfolio/portfolio.module#PortfolioModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
-  { path: ':user/portfolio', loadChildren: './portfolio/portfolio.module#PortfolioModule' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: ':username', loadChildren: './personal/personal.module#PersonalModule' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

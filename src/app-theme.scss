@@ -23,3 +23,27 @@ $green-theme: mat-light-theme($primary, $accent, $warn);
 a, b, h1{
 	color: mat-color($primary);
 }
+
+$primary-color: mat-color($primary);
+$primary-contrast: mat-contrast($primary, 500);
+.primary-snackbar {
+  background-color: $primary-color;
+  color: $primary-contrast;
+  a, button {color: $primary-contrast;}
+}
+
+$warn-color: mat-color($warn);
+$warn-contrast: mat-contrast($warn, 500);
+.warn-snackbar {
+  background-color: $warn-color;
+  color: $warn-contrast;
+  a, button {color: $warn-contrast;}
+}
+
+$accent-color: mat-color($accent);
+$accent-contrast: mat-contrast($accent, 500);
+.accent-snackbar {
+  background-color: $accent-color;
+  color: $accent-contrast;
+  a, button {color: $accent-contrast;}
+}

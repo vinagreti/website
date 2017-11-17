@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { LocalDatabaseService } from './../shared/services/local-database/local-database.service';
 import { AuthService } from './../auth/shared/auth-service/auth.service';
+import { appRoutes } from './../app-routing.module';
 
 const collectionName = 'profile';
+const reservedUsernames = appRoutes.map(route => route.path);
 
 @Component({
   selector: 'app-profile',
@@ -15,10 +18,15 @@ export class ProfileComponent implements OnInit {
   user: any;
 
   constructor(private auth: AuthService,
-              private db: LocalDatabaseService) { }
+              private db: LocalDatabaseService,
+              public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.loadProfile();
+  }
+
+  private isReservedUsername(username) {
+    return reservedUsernames.indexOf(username) >= 0;
   }
 
   loadProfile() {
@@ -36,12 +44,20 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  openSnackBar(msg) {
+    this.snackBar.open(msg, 'Close', {duration: 0, extraClasses: ['warn-snackbar']});
+  }
+
   save() {
-    if (!this.profile.id) {
-      this.profile.id = this.user.uid;
-      this.db.collection(collectionName).create(this.profile);
+    if (this.isReservedUsername(this.profile.username)) {
+      this.openSnackBar('This username is already taken...');
     } else {
-      this.db.collection(collectionName).update(this.profile);
+      if (!this.profile.id) {
+        this.profile.id = this.user.uid;
+        this.db.collection(collectionName).create(this.profile);
+      } else {
+        this.db.collection(collectionName).update(this.profile);
+      }
     }
   }
 

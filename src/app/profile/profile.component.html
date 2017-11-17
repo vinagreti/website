@@ -1,10 +1,11 @@
-profile
-
-
-<form class="example-form" (submit)="save()">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" name="name" [(ngModel)]="profile.name">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit">Save</button>
-</form>
+<div class="default-content-container">
+  <form (submit)="save()">
+    <mat-form-field>
+      <input matInput placeholder="Name" name="name" [(ngModel)]="profile.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Username" name="username" [(ngModel)]="profile.username">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </form>
+</div>
