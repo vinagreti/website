@@ -15,8 +15,7 @@
     <span fxHide.lt-md="true">
       <a mat-button routerLink="about">about</a>
       <a mat-button routerLink="contact">contact</a>
-      <a mat-button routerLink="dashboard" *ngIf="(user | async)?.logged">dashboard</a>
-      <a mat-button routerLink="portfolio">portfolio</a>
+      <a mat-button routerLink="open-source">open source</a>
     </span>
 
     <span class="toolbar-spacer"></span>
@@ -62,8 +61,8 @@
         <li><a mat-button routerLink="about">
           <mat-icon fontIcon="fa-user"></mat-icon> about
         </a></li>
-        <li><a mat-button routerLink="portfolio">
-          <mat-icon fontIcon="fa-hashtag"></mat-icon> portfolio
+        <li><a mat-button routerLink="open-source">
+          <mat-icon fontIcon="fa-hashtag"></mat-icon> open source
         </a></li>
         <li><a mat-button routerLink="blog">
           <mat-icon fontIcon="fa-commenting"></mat-icon> blog

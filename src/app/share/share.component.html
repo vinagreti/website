@@ -1,26 +1,75 @@
-<form class="form" role="form" [formGroup]="shareForm" (submit)="share()">
-  <mat-dialog-content>
-    <h3 mt-dialog-title>Share something</h3>
-    <mat-form-field>
-      <input type="text" matInput placeholder="image" formControlName="image" />
-    </mat-form-field>
+<div class="default-content-container">
+  <form class="form" role="form" [formGroup]="shareForm" (submit)="share()">
+    <mat-dialog-content>
+      <h3 mt-dialog-title>Share something</h3>
+      <mat-form-field>
+        <select placeholder="type" formControlName="type">
+          <option value="post">post</option>
+          <option value="openSource">openSource</option>
+        </select>
+      </mat-form-field>
+    </mat-dialog-content>
+  </form>
 
-    <img *ngIf="shareForm.controls.image.valid" [src]="shareForm.controls.image.value">
+  <div [ngSwitch]="shareForm.controls.type.value">
+    <div *ngSwitchCase="'post'">
+      <form class="form" role="form" [formGroup]="postsForm" (submit)="share('post')">
+        <mat-dialog-content>
+          <h4 mt-dialog-title>Share a post</h4>
+          <mat-form-field>
+            <input type="text" matInput placeholder="image" formControlName="image" />
+          </mat-form-field>
 
-    <mat-form-field>
-      <input type="text" matInput placeholder="title" formControlName="title" />
-    </mat-form-field>
+          <img *ngIf="postsForm.controls.image.valid" [src]="postsForm.controls.image.value">
 
-    <mat-form-field>
-      <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
-    </mat-form-field>
+          <mat-form-field>
+            <input type="text" matInput placeholder="title" formControlName="title" />
+          </mat-form-field>
 
-    <mat-form-field>
-      <input type="text" matInput placeholder="link" formControlName="link" />
-    </mat-form-field>
-  </mat-dialog-content>
+          <mat-form-field>
+            <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
+          </mat-form-field>
 
-  <mat-dialog-actions align="end">
-    <button mat-raised-button color="warn" type="submit">Share</button>
-  </mat-dialog-actions>
-</form>
+          <mat-form-field>
+            <input type="text" matInput placeholder="link" formControlName="link" />
+          </mat-form-field>
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+          <button mat-raised-button color="warn" type="submit">Share</button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+
+    <div *ngSwitchCase="'openSource'">
+      <form class="form" role="form" [formGroup]="openSourcesForm" (submit)="share('openSource')">
+        <mat-dialog-content>
+          <h4 mt-dialog-title>Share an open source</h4>
+          <mat-form-field>
+            <input type="text" matInput placeholder="image" formControlName="image" />
+          </mat-form-field>
+
+          <img *ngIf="openSourcesForm.controls.image.valid" [src]="openSourcesForm.controls.image.value">
+
+          <mat-form-field>
+            <input type="text" matInput placeholder="title" formControlName="title" />
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput rows="2" placeholder="share something here" formControlName="text"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input type="text" matInput placeholder="link" formControlName="link" />
+          </mat-form-field>
+        </mat-dialog-content>
+
+        <mat-dialog-actions align="end">
+          <button mat-raised-button color="warn" type="submit">Share</button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+
+
+</div>

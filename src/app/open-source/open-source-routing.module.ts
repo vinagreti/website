@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Components
-import { PortfolioComponent } from './portfolio.component';
+import { OpenSourceComponent } from './open-source.component';
 
 export const appRoutes: Routes = [
-  { path: '',  component: PortfolioComponent}
+  { path: '',  component: OpenSourceComponent}
 ];
 
 @NgModule({
@@ -15,4 +15,4 @@ export const appRoutes: Routes = [
   ]
 })
 
-export class PortfolioRoutingModule { }
+export class OpenSourceRoutingModule { }

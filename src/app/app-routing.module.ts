@@ -7,14 +7,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 export const appRoutes: Routes = [
   { path: '',  component: HomeComponent},
-  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'about', loadChildren: './about/about.module#AboutModule' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'contact', loadChildren: './contact/contact.module#ContactModule' },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-  { path: 'portfolio', loadChildren: './portfolio/portfolio.module#PortfolioModule' },
+  { path: 'open-source', loadChildren: './open-source/open-source.module#OpenSourceModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
-  { path: ':username', loadChildren: './personal/personal.module#PersonalModule' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
