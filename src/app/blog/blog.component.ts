@@ -26,7 +26,7 @@ export class BlogComponent implements OnInit {
   }
 
   private loadPosts() {
-    this.posts = this.collection.documents();
+    this.posts = this.db.collection(collectionName).documents();
   }
 
   private add() {

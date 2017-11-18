@@ -89,7 +89,7 @@ export class ShareComponent implements OnInit {
     const description = this.openSourcesForm.controls.description.value;
     const link = this.openSourcesForm.controls.link.value;
     const title = this.openSourcesForm.controls.title.value;
-    const openSource = new Post({link, title, description});
+    const openSource = {link, title, description};
     const subscription = this.db.collection(this.openSourceCollectionName)
     .create(openSource)
     .then((res: any) => {
@@ -106,7 +106,7 @@ export class ShareComponent implements OnInit {
     const image = this.postsForm.controls.image.value;
     const text = this.postsForm.controls.text.value;
     const title = this.postsForm.controls.title.value;
-    const post = new Post({link, text, title, image});
+    const post = {link, text, title, image};
     const subscription = this.db.collection(this.postsCollectionName)
     .create(post)
     .then((res: any) => {

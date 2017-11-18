@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -11,22 +12,22 @@ export class LocalDatabaseService {
 
   dbScope; // when inside a user profile ex: host/'bruno'/about
 
-  collections: Array<Collection> = [];
+  collections: Array<{key: string, value: Collection}> = [];
 
-  constructor(private fbS: LocalFirebaseService) {
+  constructor(private fbS: LocalFirebaseService, private snackBar: MatSnackBar) {
     console.log('LocalDatabaseService started');
-    this.dbDriver = new FirebaseDriver(fbS);
+    this.dbDriver = new FirebaseDriver(fbS, snackBar);
     JsonLocalStorage.checkStorageAvailability();
   }
 
-  collection = (collectionName) => {
-    let collection = this.collections[collectionName];
+  collection = (collectionName): Collection => {
+    const collection = this.collections.find(collection => collection.key === collectionName);
     if (collection) {
-      return collection;
+      return collection.value;
     } else {
-      collection = this.dbDriver.collection(collectionName);
-      this.collections[collectionName] = collection;
-      return collection;
+      const newCollection = this.dbDriver.collection(collectionName, this.snackBar);
+      this.collections.push({key: '', value: newCollection});
+      return newCollection;
     }
   }
 }
@@ -34,9 +35,9 @@ export class LocalDatabaseService {
 export class Collection {
 
   protected collection: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
-  protected docs: any = {};
+  protected docs: Array<{key: string, value: Observable<Document>}> = [];
 
-  constructor(public collectionName: string) {
+  constructor(public collectionName: string, protected snackBar: MatSnackBar) {
     this.subscribeToDocs();
     this.loadDataFromLocalStorage();
   }
@@ -46,13 +47,14 @@ export class Collection {
   }
 
   document(id): Observable<any> {
-    let document = this.docs[id];
+    let document = this.docs.find(doc => doc.key === id);
     if (document) {
-      return document;
+      return document.value;
     } else {
       const document = new Document(this.collectionName, id);
-      this.docs[id] = new BehaviorSubject<any>(document);
-      return this.docs[id];
+      const newDocObsrvable = new BehaviorSubject<Document>(document);
+      this.docs.push({key: id, value: newDocObsrvable});
+      return newDocObsrvable;
     }
   }
 
@@ -68,8 +70,11 @@ export class Collection {
 
   delete(document: any): Promise<boolean> {
     return new Promise<any>((res, rej) => {
-      const docs = this.loadDataFromLocalStorage();
-      const inMemmoryDoc = docs[document.id];
+      this.snackBar.open('Saved!');
+      this.snackBar.open('Saved!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
+/*      const docs = this.loadDataFromLocalStorage();
+      const inMemmoryDoc = docs[document.id];*/
+
     });
   }
 
@@ -88,16 +93,20 @@ export class Collection {
 
   create(document: any): Promise<any> {
     return new Promise<any>((res, rej) => {
-      document.id = document.id || Date.now();
+      this.snackBar.open('Created!');
+      this.snackBar.open('Created!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
+/*      document.id = document.id || Date.now();
       const docs = this.loadDataFromLocalStorage();
       docs[document.id] = document;
-      res(this.collection.next(docs));
+      res(this.collection.next(docs));*/
     });
   }
 
   update(document: any, upsert = false): Promise<any> {
-    return new Promise<any>((res, rej) => {
-      const docs = this.loadDataFromLocalStorage();
+    return new Promise<any>((res, rej) => {console.log('this.snackBar',this.snackBar)
+      this.snackBar.open('Updated!');
+      this.snackBar.open('Updated!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
+/*      const docs = this.loadDataFromLocalStorage();
       const inMemmoryDoc = docs[document.id];
       if (inMemmoryDoc) {
         res(this.collection.next(docs));
@@ -105,9 +114,9 @@ export class Collection {
         if (upsert) {
           this.create(document).then(res, rej);
         } else {
-          rej('Document does not exist. Enable upsert to insert documents when they are not found within the collection.');
+          rej('LocalDatabaseServiceCollectionError: Document does not exist. Enable upsert to insert documents when they are not found within the collection.');
         }
-      }
+      }*/
     });
   }
 }
@@ -124,19 +133,19 @@ class Document {
 
 class FirebaseCollection extends Collection {
 
-  constructor(public collectionName: string, private db) {
-    super(collectionName);
+  constructor(public collectionName: string, protected snackBar: MatSnackBar, protected db) {
+    super(collectionName, snackBar);
     this.subscribeToFirebaseCollection();
   }
 
   document(id): Observable<any> {
-    let document = this.docs[id];
+    const document = this.docs.find(doc => doc.key === id);
     if (document) {
-      return document;
+      return document.value;
     } else {
-      const document = new FirebaseDocument(this.collectionName, id, this.db);
-      this.docs[id] = document.value;
-      return this.docs[id];
+      const newDocument = new FirebaseDocument(this.collectionName, id, this.db);
+      this.docs.push({key: id, value: newDocument.value});
+      return newDocument.value;
     }
   }
 
@@ -182,7 +191,7 @@ class FirebaseCollection extends Collection {
       .doc(document.id)
       .update(document)
       .then((doc) => {
-        super.update(document);
+        super.update(document, true);
         res(document);
       })
       .catch((error) => {
@@ -201,7 +210,7 @@ class FirebaseCollection extends Collection {
       docs.forEach((doc) => {
         const document = doc.data();
         document.id = doc.id;
-        parsedDocs[document.id] = document;
+        parsedDocs.push(document);
       });
       this.collection.next(parsedDocs);
     });
@@ -230,12 +239,12 @@ class FirebaseDocument extends Document {
 
 export class FirebaseDriver {
 
-  constructor(private localFirebaseService: LocalFirebaseService) {
+  constructor(protected localFirebaseService: LocalFirebaseService, protected snackBar: MatSnackBar) {
     console.log('LocalDatabaseService FirebaseDriver started');
   }
 
   collection = (collectionName) => {
-    return new FirebaseCollection(collectionName, this.localFirebaseService);
+    return new FirebaseCollection(collectionName, this.snackBar, this.localFirebaseService);
   }
 
 }
