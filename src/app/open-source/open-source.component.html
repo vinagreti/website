@@ -10,7 +10,7 @@
             {{project.description}}
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-raised-button color="warn" type="button" (click)="delete($event, project)">DELETE</button>
+            <button mat-raised-button color="warn" type="button" (click)="delete($event, project)" *userRole>DELETE</button>
           </mat-card-actions>
         </mat-card>
       </a>
