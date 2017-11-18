@@ -7,6 +7,9 @@
 
 # dependencies
 /node_modules
+/functions
+.firebaserc
+firebase.json
 
 # IDEs and editors
 /.idea
