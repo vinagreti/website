@@ -12,7 +12,7 @@ const openSourceCollectionName = 'openSource';
 export class OpenSourceComponent implements OnInit {
 
   private collection: Collection;
-  private projects: Observable<Array<any>>;
+  projects: Observable<Array<any>>;
 
   constructor(private db: LocalDatabaseService) { }
 
