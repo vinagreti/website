@@ -1,4 +1,4 @@
-<div class="default-content-container">
+<div class="default-content-container" *ngIf="profile">
   <h1>contact</h1>
-  <a href="mailto:bruno@tzadi.com">bruno@tzadi.com</a>
+  <a href="mailto:bruno@tzadi.com">{{profile.email}}</a>
 </div>

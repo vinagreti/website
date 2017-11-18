@@ -70,7 +70,6 @@ export class Collection {
 
   delete(document: any): Promise<boolean> {
     return new Promise<any>((res, rej) => {
-      this.snackBar.open('Saved!');
       this.snackBar.open('Saved!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
 /*      const docs = this.loadDataFromLocalStorage();
       const inMemmoryDoc = docs[document.id];*/
@@ -93,7 +92,6 @@ export class Collection {
 
   create(document: any): Promise<any> {
     return new Promise<any>((res, rej) => {
-      this.snackBar.open('Created!');
       this.snackBar.open('Created!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
 /*      document.id = document.id || Date.now();
       const docs = this.loadDataFromLocalStorage();
@@ -103,8 +101,7 @@ export class Collection {
   }
 
   update(document: any, upsert = false): Promise<any> {
-    return new Promise<any>((res, rej) => {console.log('this.snackBar',this.snackBar)
-      this.snackBar.open('Updated!');
+    return new Promise<any>((res, rej) => {
       this.snackBar.open('Updated!', 'Close', {duration: 1e3, extraClasses: ['primary-snackbar']});
 /*      const docs = this.loadDataFromLocalStorage();
       const inMemmoryDoc = docs[document.id];
@@ -175,7 +172,7 @@ class FirebaseCollection extends Collection {
       this.db.firebaseDb.collection(this.collectionName)
       .doc(docRef.id)
       .delete()
-      .then((res) => {
+      .then(() => {
         super.delete(document);
         res(true);
       })

@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  USER_DOCUMENT_ID: 't9umFO0vymd9yoRJ5IiHbVgJLAp1',
   firebase_config: {
     apiKey: 'AIzaSyAxsoqwfq_b2fiteiGlkEFck7ZTkFpcU4I',
     authDomain: 'we-profile-96cff.firebaseapp.com',

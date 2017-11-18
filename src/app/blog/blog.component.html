@@ -11,7 +11,7 @@
             {{post.text}}
           </mat-card-content>
           <mat-card-actions align="end" *userRole>
-            <button mat-raised-button color="warn" type="button" (click)="delete(post)">DELETE</button>
+            <button mat-raised-button color="warn" type="button" (click)="delete($event, post)">DELETE</button>
           </mat-card-actions>
         </mat-card>
       </a>

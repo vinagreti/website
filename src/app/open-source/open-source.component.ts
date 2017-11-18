@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDatabaseService, Collection } from './../shared/services/local-database/local-database.service';
 import { Observable } from 'rxjs/Observable';
+
+const openSourceCollectionName = 'openSource';
+
 @Component({
   selector: 'app-open-source',
   templateUrl: './open-source.component.html',
@@ -8,9 +11,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class OpenSourceComponent implements OnInit {
 
-  private collectionName = 'openSource';
   private collection: Collection;
-  private documents: Observable<Array<any>>;
+  private projects: Observable<Array<any>>;
 
   constructor(private db: LocalDatabaseService) { }
 
@@ -20,11 +22,16 @@ export class OpenSourceComponent implements OnInit {
   }
 
   loadOpenSourceCollection() {
-    this.collection = this.db.collection(this.collectionName)
+    this.collection = this.db.collection(openSourceCollectionName)
   }
 
   loadOpenSourceDocuments() {
-    this.documents = this.db.collection(this.collectionName).documents();
+    this.projects = this.db.collection(openSourceCollectionName).documents();
   }
 
+  delete(event, project) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.collection.delete(project);
+  }
 }

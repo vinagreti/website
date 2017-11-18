@@ -1,19 +1,23 @@
 <div class="default-content-container">
   <h1>open source</h1>
 
-  <ol fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between" class="style-type-none">
-    <li fxFlex="48%" fxFlex.lt-md="100%" *ngFor="let document of documents | async">
-      <a [href]="document.link" target="_blank">
+  <ol fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between" class="style-type-none" *ngIf="(projects | async)?.length; else nothingHere;">
+    <li fxFlex="48%" fxFlex.lt-md="100%" *ngFor="let project of projects | async">
+      <a [href]="project.link" target="_blank">
         <mat-card>
-          <mat-card-title>{{document.title}}</mat-card-title>
+          <mat-card-title>{{project.title}}</mat-card-title>
           <mat-card-content>
-            {{document.description}}
+            {{project.description}}
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-raised-button color="warn" type="button" (click)="delete(document)">DELETE</button>
+            <button mat-raised-button color="warn" type="button" (click)="delete($event, project)">DELETE</button>
           </mat-card-actions>
         </mat-card>
       </a>
     </li>
   </ol>
 </div>
+
+<ng-template #nothingHere>
+  <p>Comming soon...</p>
+</ng-template>

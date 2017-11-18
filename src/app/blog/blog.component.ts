@@ -38,10 +38,9 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  delete(post) {
-    this.collection.delete(post)
-    .subscribe((res) => {
-      console.log(`Blog post removed ${post.id}`);
-    });
+  delete(event, post) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.collection.delete(post);
   }
 }
