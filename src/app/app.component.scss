@@ -2,6 +2,10 @@
 
 .sidenav-toolbar{
   width: 100%;
+  position: fixed;
+  margin-top: -64px;
+  z-index: 2;
+
   .toolbar-content {
     width: 100%;
     max-width: $minDesktopWidth;
@@ -18,6 +22,11 @@
   }
 }
 
+@media screen and (max-width: $maxDesktopWidth) {
+  .sidenav-toolbar {
+    margin-top: -56px;
+  }
+}
 
 .mat-sidenav-container{
 
