@@ -49,6 +49,15 @@ export class ProfileComponent implements OnInit {
   }
 
   save() {
+    if (!this.profile.id) {
+      this.profile.id = this.user.uid;
+      this.db.collection(collectionName).create(this.profile);
+    } else {
+      this.db.collection(collectionName).update(this.profile);
+    }
+  }
+
+/*  save() {
     if (this.isReservedUsername(this.profile.username)) {
       this.openSnackBar('This username is already taken...');
     } else {
@@ -59,6 +68,6 @@ export class ProfileComponent implements OnInit {
         this.db.collection(collectionName).update(this.profile);
       }
     }
-  }
+  }*/
 
 }

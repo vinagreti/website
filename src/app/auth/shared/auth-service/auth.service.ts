@@ -119,7 +119,7 @@ export class AuthService {
   }
 
   isLoggedIn = () => {
-    return this._user.auth ? this._user : false;
+    return this._user.logged ? this._user : false;
   }
 
   isAdmin = () => {

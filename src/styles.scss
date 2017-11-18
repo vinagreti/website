@@ -30,6 +30,16 @@ a{
   flex: 1 1 auto;
 }
 
+ol.style-type-none {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preserve-textarea-format {
+  white-space: pre-wrap;
+}
+
 /*
 * Chrome autocomplete bg
 */
@@ -68,3 +78,4 @@ input:-webkit-autofill {
   max-width: $minDesktopWidth;
   margin: auto;
 }
+

@@ -1,5 +1,19 @@
 <div class="default-content-container">
   <h1>open source</h1>
 
-  <a href="https://vinagreti.github.io/angular-image-picker">Angular Image Picker</a>
+  <ol fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between" class="style-type-none">
+    <li fxFlex="48%" fxFlex.lt-md="100%" *ngFor="let document of documents | async">
+      <a [href]="document.link" target="_blank">
+        <mat-card>
+          <mat-card-title>{{document.title}}</mat-card-title>
+          <mat-card-content>
+            {{document.description}}
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="warn" type="button" (click)="delete(document)">DELETE</button>
+          </mat-card-actions>
+        </mat-card>
+      </a>
+    </li>
+  </ol>
 </div>

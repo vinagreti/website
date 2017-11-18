@@ -12,14 +12,16 @@ import { ShareModule } from './share/share.module';
 import { LocalDatabaseModule } from './shared/services/local-database/local-database.module';
 import { AuthServiceModule } from './auth/shared/auth-service/auth-service.module';
 import { GuardModule } from './shared/services/guard/guard.module';
+import { AdminOnlyDirectiveModule } from './shared/directives/admin-only/admin-only.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
+    AdminOnlyDirectiveModule,
     AppRoutingModule,
     AuthServiceModule,
     BrowserModule,

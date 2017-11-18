@@ -10,7 +10,6 @@ import { AuthService } from './auth/shared/auth-service/auth.service';
 })
 export class AppComponent {
   title = 'app';
-  user;
 
   @ViewChild(MatSidenav) sidenav;
 
@@ -20,7 +19,6 @@ export class AppComponent {
     private auth: AuthService
   ) {
     this.configureIconFont();
-    this.user = this.auth.user;
   }
 
   private configureIconFont() {
