@@ -5,7 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build-gh-page && npm run create-404 && npm run sw",
+    "build-gh-page": "ng build --prod --base-href='https://vinagreti.github.io/'",
+    "create-404": "cp dist/index.html dist/404.html",
+    "sw": "sw-precache --root=dist --config=sw-precache-config.js",
+    "dist": "cd dist && live-server --port=4200 --host=0.0.0.0 --entry-file=/index.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -28,8 +32,11 @@
     "core-js": "^2.4.1",
     "firebase": "^4.6.2",
     "font-awesome": "^4.7.0",
+    "g": "^2.0.1",
     "http": "0.0.0",
+    "live-server": "^1.2.0",
     "rxjs": "^5.5.2",
+    "sw-precache": "^5.2.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
