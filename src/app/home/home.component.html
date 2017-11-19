@@ -1,13 +1,13 @@
 <div class="home-bg-wrapper">
   <div class="home-bg" [ngStyle]="{'background-image':'url(' + bgImage + ')'}">
-    <div class="home-title-wrapper">
-      <span class="home-title">Front-end Developer</span>
-      <br>
-      <span class="home-subtitle">Focused on Angular</span>
-    </div>
-    <div fxHide.gt-xs="true">
-      <button type="button" mat-raised-button routerLink="blog" (click)="bruno()">articles</button>
-      <button type="button" mat-raised-button routerLink="open-source">open-source</button>
+    <div class="home-bg-content">
+      <div class="home-title-wrapper">
+        <span class="home-title">Front-end Developer</span>
+      </div>
+      <div fxHide.gt-xs="true">
+        <button type="button" mat-button routerLink="blog">articles</button>
+        <button type="button" mat-button routerLink="open-source">open-source</button>
+      </div>
     </div>
   </div>
 </div>

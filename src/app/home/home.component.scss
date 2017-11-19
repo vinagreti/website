@@ -1,48 +1,58 @@
 @import './../../styles/constants';
 
-.home-title-wrapper{
-  color: white;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.home-title{
-  font-size: 5em;
-}
-
-.home-subtitle{
-  font-size: 4em;
-}
-
 .home-bg-wrapper {
-  overflow: hidden;
   height: 100vh;
-}
+  margin-top: -64px;
+  @media screen and (max-width: $maxDesktopWidth) {
+    margin-top: -56px;
+  }
 
-.home-bg {
-  background-position: 63% center;
-  transition: background-position .8s;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 
-  button{
-    display: block;
-    margin: 64px auto;
-    padding: 16px 48px;
+  .home-bg {
+    background-position: 63% center;
+    transition: background-position .8s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .home-bg-content {
+      padding-top: 64px;
+      @media screen and (max-width: $maxDesktopWidth) {
+        padding-top: 56px;
+      }
+
+      button {
+        display: block;
+        margin: 64px auto;
+        padding: 16px 48px;
+        border: 2px solid white;
+        color: white;
+        font-size: 20px;
+      }
+
+      .home-title-wrapper{
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.4);
+
+        .home-title{
+          font-size: 5em;
+        }
+
+        .home-subtitle{
+          font-size: 4em;
+        }
+      }
+    }
   }
 }
+
 
 @media screen and (max-width: $maxDesktopWidth) {
-  .home-title{
-    font-size: 3em;
-  }
-  .home-subtitle{
-    font-size: 2em;
-  }
+
   .home-bg-wrapper {
     width: auto;
     min-height: auto;
@@ -52,12 +62,23 @@
     right: auto;
     top: auto;
     bottom: auto;
+
+    .home-bg {
+      max-height: none;
+      background-position: 85% center;
+
+      .home-title-wrapper{
+
+        .home-title{
+          font-size: 3em;
+        }
+        .home-subtitle{
+          font-size: 2em;
+        }
+      }
+    }
   }
 
-  .home-bg {
-    max-height: none;
-    background-position: 85% center;
-  }
 }
 
 @media screen and (max-width: ($maxDesktopWidth - $minPhoneWidth)/2) {

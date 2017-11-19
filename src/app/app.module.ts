@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule } from '@angular/http';
-import { MatIconModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -35,6 +35,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     HttpModule,
     LeftMenuModule,
     LocalDatabaseModule,
+    MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
