@@ -1,0 +1,16 @@
+@import './../../styles/constants';
+
+.toolbar-wrapper {
+  width: 100%;
+  max-width: $minDesktopWidth;
+  margin: auto;
+  display: flex;
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  .toolbar-name, mat-icon{
+    color: white;
+  }
+}

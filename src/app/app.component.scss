@@ -1,61 +1,30 @@
-@import './style/constants';
+@import './../styles/constants';
 
-.sidenav-toolbar{
+.main-toolbar{
   width: 100%;
   position: fixed;
   margin-top: -64px;
   z-index: 2;
-
-  .toolbar-content {
-    width: 100%;
-    max-width: $minDesktopWidth;
-    margin: auto;
-    display: flex;
-
-    .toolbar-spacer {
-      flex: 1 1 auto;
-    }
-
-    .toolbar-name, mat-icon{
-      color: white;
-    }
-  }
 }
 
 @media screen and (max-width: $maxDesktopWidth) {
-  .sidenav-toolbar {
+  .main-toolbar {
     margin-top: -56px;
   }
 }
 
-.mat-sidenav-container{
-
-  min-height: 100vh;
+.main-sidenav-container{
+  min-height: 100%;
+  max-width: 100%;
+  width: 100%;
 
   .mat-sidenav {
-    display: flex;
-    overflow: visible;
-    width: 300px;
-  }
-
-  .scrolling-content {
-    overflow: auto;
-    width: 100%;
-
-    ol{
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      padding-top: 16px;
-    }
-
-    li, li a{
-      width: 100%;
-      font-size: 20px;
-      text-align: left;
-      line-height: 48px;
-    }
+    min-width: 250px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
   }
 }
 

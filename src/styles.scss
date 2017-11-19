@@ -1,12 +1,10 @@
-@import './app/style/constants';
+@import './styles/constants';
 
 /* You can add global styles to this file, and also import other style files */
 body {
   padding: 0;
   padding-top: 64px;
   margin: 0;
-  min-height: 100%;
-  width: 100%;
   min-width: $minPhoneWidth;
 }
 

@@ -1,0 +1,39 @@
+<div class="toolbar-wrapper">
+
+  <a *ngIf="sidenav"
+    (click)="sidenav.toggle()"
+    href="javascript:void(0)">
+    <mat-icon fontIcon="fa-bars"></mat-icon>
+  </a>
+
+  &nbsp;
+  &nbsp;
+
+  <span class="click" routerLink="/">Bruno João</span>
+
+  <span class="toolbar-spacer"></span>
+
+  <span fxHide.lt-md="true">
+  </span>
+
+  <span class="toolbar-spacer"></span>
+
+  <span fxHide.xs="true">
+    <a mat-button routerLink="about">about</a>
+    <a mat-button routerLink="blog">blog</a>
+    <a mat-button routerLink="contact">contact</a>
+    <a mat-button routerLink="open-source">open source</a>
+
+    <a routerLink="profile" *userRole>
+      <mat-icon fontIcon="fa-user"></mat-icon>
+    </a>
+
+    <a href="javascript:void(0);" (click)="shareSomething()" *userRole>
+      <mat-icon fontIcon="fa-plus"></mat-icon>
+    </a>
+
+    <a href="javascript:void(0);" (click)="logout()" *userRole>
+      <mat-icon fontIcon="fa-sign-out"></mat-icon>
+    </a>
+  </span>
+</div>

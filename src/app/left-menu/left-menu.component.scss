@@ -1,0 +1,25 @@
+:host {
+  overflow: auto;
+  width: 100%;
+
+  .left-menu-wrapper {
+    height: 100%;
+
+    ol{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      padding-top: 16px;
+
+      li, li a{
+        width: 100%;
+        font-size: 20px;
+        text-align: left;
+        line-height: 48px;
+      }
+    }
+  }
+
+}
+

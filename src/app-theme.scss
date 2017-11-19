@@ -9,8 +9,8 @@
 
 // Default App Custom theme
 $primary: mat-palette($mat-teal, 700);
-$warn: mat-palette($mat-amber, 700);
-$accent: mat-palette($mat-light-green, 500);
+$accent: mat-palette($mat-brown, A400);
+$warn: mat-palette($mat-red, 500);
 $green-theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($green-theme);

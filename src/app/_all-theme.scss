@@ -1,5 +1,6 @@
 // PLUGINS THEME
 //@import './user/user-theming';
+@import './left-menu/left-menu-theming';
 
 
 // Apply the theme.
@@ -8,14 +9,6 @@
   $accent-color: mat-color($accent);
   $accent-contrast: mat-contrast($accent, 500);
 
-  // Placeholder colors. Required is used for the `*` star shown in the placeholder.
-	//@include user-theme($theme);
-
-  .scrolling-content {
-    background-color: $accent-color;
-    li, li a{
-      color: $accent-contrast;
-    }
-  }
+  @include app-left-menu-theming($theme);
 }
 

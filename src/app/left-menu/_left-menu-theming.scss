@@ -1,0 +1,14 @@
+@mixin app-left-menu-theming($theme) {
+  $accent: map-get($theme, accent);
+  $accent-color: mat-color($accent);
+  $accent-contrast: mat-contrast($accent, 500);
+
+  .left-menu-wrapper{
+    background-color: $accent-color;
+
+    li, li a{
+      color: $accent-contrast;
+    }
+  }
+
+}

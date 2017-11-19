@@ -1,78 +1,12 @@
-<mat-toolbar color="primary" class="sidenav-toolbar">
-  <div class="toolbar-content">
-
-    <a (click)="sidenav.toggle()" href="javascript:void(0)">
-      <mat-icon fontIcon="fa-bars"></mat-icon>
-    </a>
-
-    &nbsp;
-    &nbsp;
-
-    <span class="click" routerLink="/">Bruno João</span>
-
-    <span class="toolbar-spacer"></span>
-
-    <span fxHide.lt-md="true">
-    </span>
-
-    <span class="toolbar-spacer"></span>
-
-    <span fxHide.xs="true">
-      <a mat-button routerLink="about">about</a>
-      <a mat-button routerLink="blog">blog</a>
-      <a mat-button routerLink="contact">contact</a>
-      <a mat-button routerLink="open-source">open source</a>
-
-      <a routerLink="profile" *userRole>
-        <mat-icon fontIcon="fa-user"></mat-icon>
-      </a>
-
-      <a href="javascript:void(0);" (click)="shareSomething()" *userRole>
-        <mat-icon fontIcon="fa-plus"></mat-icon>
-      </a>
-
-      <a href="javascript:void(0);" (click)="logout()" *userRole>
-        <mat-icon fontIcon="fa-sign-out"></mat-icon>
-      </a>
-    </span>
-  </div>
+<mat-toolbar color="primary" class="main-toolbar">
+  <app-toolbar [sidenav]="sidenav"></app-toolbar>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="over" opened="false">
-    <div class="scrolling-content">
-      <ol>
-        <li><a mat-button routerLink="about" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-user"></mat-icon> about
-        </a></li>
-        <li><a mat-button routerLink="open-source" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-code"></mat-icon> open source
-        </a></li>
-        <li><a mat-button routerLink="blog" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-commenting"></mat-icon> blog
-        </a></li>
-        <li><a mat-button routerLink="contact" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-envelope"></mat-icon> contact
-        </a></li>
-        <li><a mat-button routerLink="dashboard" *userRole (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-dashboard"></mat-icon> dashboard
-        </a></li>
-
-        <li><a mat-button href="https://www.linkedin.com/in/brunojoao/" target="_blank" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-linkedin"></mat-icon> linkedin
-        </a></li>
-
-        <li><a mat-button href="https://stackoverflow.com/users/2009212/vinagreti" target="_blank" (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-stack-overflow"></mat-icon> stack-overflow
-        </a></li>
-
-        <li><a mat-button routerLink="profile" *userRole (click)="sidenav.toggle()">
-          <mat-icon fontIcon="fa-user"></mat-icon> profile
-        </a></li>
-      </ol>
-    </div>
+<mat-sidenav-container class="main-sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened="false">
+    <app-left-menu></app-left-menu>
   </mat-sidenav>
-  <div class="top-container">
+  <div>
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>
