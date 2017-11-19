@@ -21,7 +21,7 @@
     <li><a mat-button routerLink="profile" *userRole (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-user"></mat-icon> profile
     </a></li>
-    <li><a mat-button routerLink="auth" *userRole (click)="sidenav.toggle()">
+    <li><a mat-button routerLink="auth" *userRole="'public'" (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-user"></mat-icon> login
     </a></li>
   </ol>

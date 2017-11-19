@@ -19,10 +19,23 @@ export class UserRoleDirective {
   @Input()
   set userRole(condition: any) {
 
-    this.authService.user.subscribe(user => {
-      this._context.$implicit = this._context.userRole = user.logged;
-      this._updateView();
-    });
+    switch (condition) {
+      case 'public':
+
+        this.authService.user.subscribe(user => {
+          this._context.$implicit = this._context.userRole = !!!user.logged;
+          this._updateView();
+        });
+        break;
+      default:
+
+        this.authService.user.subscribe(user => {
+          this._context.$implicit = this._context.userRole = user.logged;
+          this._updateView();
+        });
+        break;
+    }
+
 
   }
 
