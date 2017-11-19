@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { OpenSourceComponent } from './open-source.component';
 import { OpenSourceRoutingModule } from './open-source-routing.module';
-import { AdminOnlyDirectiveModule } from './../shared/directives/admin-only/admin-only.module';
+import { UserRoleDirectiveModule } from './../shared/directives/user-role/user-role.module';
 
 @NgModule({
   imports: [
-    AdminOnlyDirectiveModule,
+    UserRoleDirectiveModule,
     CommonModule,
     MatButtonModule,
     MatCardModule,

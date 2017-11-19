@@ -30,20 +30,26 @@
         padding: 16px 48px;
         border: 2px solid white;
         color: white;
-        font-size: 20px;
+        font-size: 2em;
       }
 
       .home-title-wrapper{
         color: white;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.4);
+        padding: 32px;
 
         .home-title{
           font-size: 5em;
-        }
-
-        .home-subtitle{
-          font-size: 4em;
+          @media screen and (max-width: $maxDesktopWidth) {
+            font-size: 4em;
+          }
+          @media screen and (max-width: $maxTabletWidth) {
+            font-size: 3em;
+          }
+          @media screen and (max-width: $minTabletWidth) {
+            font-size: 2.5em;
+          }
         }
       }
     }
@@ -52,7 +58,6 @@
 
 
 @media screen and (max-width: $maxDesktopWidth) {
-
   .home-bg-wrapper {
     width: auto;
     min-height: auto;
@@ -62,39 +67,9 @@
     right: auto;
     top: auto;
     bottom: auto;
-
     .home-bg {
       max-height: none;
       background-position: 85% center;
-
-      .home-title-wrapper{
-
-        .home-title{
-          font-size: 3em;
-        }
-        .home-subtitle{
-          font-size: 2em;
-        }
-      }
     }
-  }
-
-}
-
-@media screen and (max-width: ($maxDesktopWidth - $minPhoneWidth)/2) {
-  .home-title{
-    font-size: 2em;
-  }
-  .home-subtitle{
-    font-size: 1.5em;
-  }
-}
-
-@media screen and (max-width: $minPhoneWidth) {
-  .home-title{
-    font-size: 2em;
-  }
-  .home-subtitle{
-    font-size: 1.5em;
   }
 }

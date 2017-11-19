@@ -6,6 +6,11 @@ body {
   padding-top: 64px;
   margin: 0;
   min-width: $minPhoneWidth;
+
+
+  b, a {
+    outline:none;
+  }
 }
 
 @media screen and (max-width: $maxDesktopWidth) {
@@ -59,14 +64,6 @@ input:-webkit-autofill {
 .mat-input-container{
   width: 100% !important;
 }
-
-/*
-* Material Dialog fix width setting problem fixing in 500 the dialog;
-*/
-.mat-dialog-content, .mat-form-field{
-  width: 500px;
-}
-
 
 /*
 * Material Overlay Pan fix mobile dialog positioning

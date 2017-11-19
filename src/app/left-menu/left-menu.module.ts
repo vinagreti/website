@@ -4,6 +4,7 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LeftMenuComponent } from './left-menu.component';
+import { UserRoleDirectiveModule } from './../shared/directives/user-role/user-role.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { LeftMenuComponent } from './left-menu.component';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    UserRoleDirectiveModule,
   ],
   declarations: [LeftMenuComponent],
   exports: [LeftMenuComponent]

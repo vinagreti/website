@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminOnlyDirective } from './admin-only.directive';
+import { UserRoleDirective } from './user-role.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    AdminOnlyDirective
+    UserRoleDirective
   ],
   exports: [
-    AdminOnlyDirective
+    UserRoleDirective
   ],
 })
-export class AdminOnlyDirectiveModule { }
+export class UserRoleDirectiveModule { }

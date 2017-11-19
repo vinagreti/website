@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatIconRegistry, MatSidenav } from '@angular/material';
-import { ShareService } from './share/share.service';
 import { AuthService } from './auth/shared/auth-service/auth.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class AppComponent {
 
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private  shareService: ShareService,
     private auth: AuthService
   ) {
     this.configureIconFont();
@@ -23,10 +21,6 @@ export class AppComponent {
 
   private configureIconFont() {
     this.matIconRegistry.setDefaultFontSetClass('fa');
-  }
-
-  shareSomething = () => {
-    this.shareService.open();
   }
 
   logout = () => {

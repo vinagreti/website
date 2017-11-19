@@ -4,11 +4,11 @@ import { MatButtonModule, MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BlogComponent } from './blog.component';
 import { BlogRoutingModule } from './blog-routing.module';
-import { AdminOnlyDirectiveModule } from './../shared/directives/admin-only/admin-only.module';
+import { UserRoleDirectiveModule } from './../shared/directives/user-role/user-role.module';
 
 @NgModule({
   imports: [
-    AdminOnlyDirectiveModule,
+    UserRoleDirectiveModule,
     BlogRoutingModule,
     CommonModule,
     FlexLayoutModule,

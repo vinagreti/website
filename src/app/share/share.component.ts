@@ -53,7 +53,7 @@ export class ShareComponent implements OnInit {
 
   initOpenSourcesForm() {
     this.openSourcesForm = this.formBuilder.group({
-      link: [''],//, Validators.pattern(this.urlPattern)],
+      link: ['', Validators.pattern(this.urlPattern)],
       description: [],
       title: [],
     });

@@ -8,7 +8,7 @@ export class ShareService {
 
   open(data = {}) {
     const dialogRef = this.dialog.open(ShareComponent, {
-      width: '550px',
+      minWidth: '550px',
       data: { name: 'this.name', animal: 'this.animal' }
     });
   }

@@ -9,11 +9,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ShareModule } from './share/share.module';
 import { LocalDatabaseModule } from './shared/services/local-database/local-database.module';
 import { AuthServiceModule } from './auth/shared/auth-service/auth-service.module';
 import { GuardModule } from './shared/services/guard/guard.module';
-import { AdminOnlyDirectiveModule } from './shared/directives/admin-only/admin-only.module';
+import { UserRoleDirectiveModule } from './shared/directives/user-role/user-role.module';
 
 import { LeftMenuModule } from './left-menu/left-menu.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
@@ -25,7 +24,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     PageNotFoundComponent,
   ],
   imports: [
-    AdminOnlyDirectiveModule,
+    UserRoleDirectiveModule,
     AppRoutingModule,
     AuthServiceModule,
     BrowserModule,
@@ -40,7 +39,6 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     MatSidenavModule,
     MatToolbarModule,
     RouterModule,
-    ShareModule,
     ToolbarModule,
   ],
   bootstrap: [

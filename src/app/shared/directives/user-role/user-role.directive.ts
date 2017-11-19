@@ -5,7 +5,7 @@ import { AuthService } from './../../../auth/shared/auth-service/auth.service';
 @Directive({
   selector: '[userRole]'
 })
-export class AdminOnlyDirective {
+export class UserRoleDirective {
   private _context: NgIfContext = new NgIfContext();
   private _thenTemplateRef: TemplateRef<NgIfContext>|null = null;
   private _elseTemplateRef: TemplateRef<NgIfContext>|null = null;
