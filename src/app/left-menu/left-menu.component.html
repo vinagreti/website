@@ -12,17 +12,17 @@
     <li><a mat-button routerLink="contact" (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-envelope"></mat-icon> contact
     </a></li>
-
     <li><a mat-button href="https://www.linkedin.com/in/brunojoao/" target="_blank" (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-linkedin"></mat-icon> linkedin
     </a></li>
-
     <li><a mat-button href="https://stackoverflow.com/users/2009212/vinagreti" target="_blank" (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-stack-overflow"></mat-icon> stack-overflow
     </a></li>
-
     <li><a mat-button routerLink="profile" *userRole (click)="sidenav.toggle()">
       <mat-icon fontIcon="fa-user"></mat-icon> profile
+    </a></li>
+    <li><a mat-button routerLink="auth" *userRole (click)="sidenav.toggle()">
+      <mat-icon fontIcon="fa-user"></mat-icon> login
     </a></li>
   </ol>
 </div>
