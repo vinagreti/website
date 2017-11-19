@@ -3,10 +3,10 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="main-sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened="false">
-    <app-left-menu></app-left-menu>
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <app-left-menu [sidenav]="sidenav"></app-left-menu>
   </mat-sidenav>
-  <div>
-    <router-outlet></router-outlet>
+  <div class="main-sidenav-content">
+    <router-outlet ></router-outlet>
   </div>
 </mat-sidenav-container>

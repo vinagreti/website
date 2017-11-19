@@ -1,16 +1,19 @@
 @import './../../styles/constants';
 
-.toolbar-wrapper {
+:host {
   width: 100%;
-  max-width: $minDesktopWidth;
-  margin: auto;
-  display: flex;
 
-  .toolbar-spacer {
-    flex: 1 1 auto;
-  }
+  .toolbar-wrapper {
+    max-width: $minDesktopWidth;
+    margin: auto;
+    display: flex;
 
-  .toolbar-name, mat-icon{
-    color: white;
+    .toolbar-spacer {
+      flex: 1 1 auto;
+    }
+
+    .toolbar-name, mat-icon{
+      color: white;
+    }
   }
 }

@@ -3,20 +3,27 @@
 .main-toolbar{
   width: 100%;
   position: fixed;
-  margin-top: -64px;
   z-index: 2;
-}
-
-@media screen and (max-width: $maxDesktopWidth) {
-  .main-toolbar {
+  margin-top: -64px;
+  @media screen and (max-width: $maxDesktopWidth) {
     margin-top: -56px;
   }
 }
 
 .main-sidenav-container{
-  min-height: 100%;
-  max-width: 100%;
   width: 100%;
+  min-height: 100vh;
+  margin-top: -64px;
+  @media screen and (max-width: $maxDesktopWidth) {
+    margin-top: -56px;
+  }
+
+  .main-sidenav-content, .mat-sidenav {
+    padding-top: 64px;
+    @media screen and (max-width: $maxDesktopWidth) {
+      padding-top: 56px;
+    }
+  }
 
   .mat-sidenav {
     min-width: 250px;
