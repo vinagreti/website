@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "npm run build-gh-page && npm run create-404 && npm run sw",
-    "build-gh-page": "ng build --prod --base-href='https://vinagreti.github.io/'",
+    "build-gh-page": "ng build --prod --base-href=https://vinagreti.github.io/",
     "create-404": "cp dist/index.html dist/404.html",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "dist": "cd dist && live-server --port=4200 --host=0.0.0.0 --entry-file=/index.html",
