@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 import { MatSnackBar } from '@angular/material';
 import { LocalDatabaseService } from './../shared/services/local-database/local-database.service';
 import { appRoutes } from './../app-routing.module';
@@ -17,7 +18,8 @@ export class ProfileComponent implements OnInit {
   profile: any = {};
 
   constructor(private db: LocalDatabaseService,
-              public snackBar: MatSnackBar) { }
+              public snackBar: MatSnackBar,
+              private http: Http) { }
 
   ngOnInit() {
     this.loadProfile();
@@ -48,6 +50,17 @@ export class ProfileComponent implements OnInit {
     } else {
       this.db.collection(collectionName).update(this.profile);
     }
+  }
+
+  test() {
+    console.log('test');
+    const endpoint = 'addMessage';
+    this.http.get('https://us-central1-we-profile-96cff.cloudfunctions.net/addMessage')
+    .subscribe((res) => {
+      console.log('retorno test', res);
+    }, (err) => {
+      console.error('ERRO retorno test', err);
+    });
   }
 
 /*  save() {

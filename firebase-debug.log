@@ -1,0 +1,374 @@
+[debug] [2017-11-19T23:35:36.817Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:35:36.819Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:35:36.819Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:35:36.819Z] Platform:      win32
+[debug] [2017-11-19T23:35:36.819Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:35:36.820Z] Time:          Sun Nov 19 2017 21:35:36 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:36.820Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:35:36.836Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:35:36.836Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:35:36.838Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-19T23:35:36.839Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/pcWz7cvJFe4kqYAOem5yq19MlF3Nf9QDrjxtfP15U0c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Nov 19 2017 21:35:36 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:37.307Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:35:37.314Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:35:37 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:38.610Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:35:38.611Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:35:38 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:39.631Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:35:40.245Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:35:40 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:40.246Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:35:40 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:35:41.657Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:35:41.802Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+D:\Dev\www\personal\functions\index.js:2
+import * as functions from 'firebase-functions';
+^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:18:11
+[debug] [2017-11-19T23:37:29.656Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:37:29.659Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:37:29.659Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:37:29.659Z] Platform:      win32
+[debug] [2017-11-19T23:37:29.659Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:37:29.660Z] Time:          Sun Nov 19 2017 21:37:29 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:37:29.660Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:37:29.672Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:37:29.672Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:37:29.675Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:37:29 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:37:30.896Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:37:30.897Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:37:30 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:37:32.087Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:37:32.529Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:37:32 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:37:32.529Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:37:32 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:37:34.041Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:37:34.208Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+D:\Dev\www\personal\functions\index.js:12
+export const addMessage = functions.https.onRequest((req, res) => {
+^^^^^^
+
+SyntaxError: Unexpected token export
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:18:11
+[debug] [2017-11-19T23:38:02.744Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:38:02.747Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:38:02.747Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:38:02.747Z] Platform:      win32
+[debug] [2017-11-19T23:38:02.747Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:38:02.748Z] Time:          Sun Nov 19 2017 21:38:02 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:02.748Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:38:02.760Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:38:02.760Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:38:02.762Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:38:02 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:04.155Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:38:04.156Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:38:04 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:05.178Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:38:05.616Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:38:05 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:05.617Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:38:05 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:06.813Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:38:07.125Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+ReferenceError: requier is not defined
+    at Object.<anonymous> (D:\Dev\www\personal\functions\index.js:2:18)
+    at Module._compile (module.js:573:30)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:18:11
+    at Object.<anonymous> (C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\lib\triggerParser.js:32:3)
+[debug] [2017-11-19T23:38:30.208Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:38:30.211Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:38:30.211Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:38:30.211Z] Platform:      win32
+[debug] [2017-11-19T23:38:30.211Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:38:30.212Z] Time:          Sun Nov 19 2017 21:38:30 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:30.212Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:38:30.224Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:38:30.225Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:38:30.227Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:38:30 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:32.023Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:38:32.027Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:38:32 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:33.550Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:38:34.010Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:38:34 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:34.010Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:38:34 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:38:36.362Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:38:37.160Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+D:\Dev\www\personal\functions\firebase.service.ts:1
+(function (exports, require, module, __filename, __dirname) { import * as firebase from 'firebase';
+                                                              ^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (D:\Dev\www\personal\functions\index.js:6:30)
+[debug] [2017-11-19T23:47:33.512Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:47:33.516Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:47:33.516Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:47:33.516Z] Platform:      win32
+[debug] [2017-11-19T23:47:33.516Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:47:33.517Z] Time:          Sun Nov 19 2017 21:47:33 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:47:33.517Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:47:33.531Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:47:33.532Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:47:33.534Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:47:33 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:47:35.717Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:47:35.718Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:47:35 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:47:37.409Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:47:38.075Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:47:38 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:47:38.076Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:47:38 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:47:40.136Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:47:40.336Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+D:\Dev\www\personal\functions\firebase.service.ts:7
+  firebaseDb;
+            ^
+
+SyntaxError: Unexpected token ;
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (D:\Dev\www\personal\functions\index.js:6:30)
+[debug] [2017-11-19T23:49:25.591Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:49:25.593Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:49:25.593Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:49:25.593Z] Platform:      win32
+[debug] [2017-11-19T23:49:25.594Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:49:25.594Z] Time:          Sun Nov 19 2017 21:49:25 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:49:25.594Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:49:25.610Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:49:25.611Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:49:25.613Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:49:25 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:49:27.146Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:49:27.147Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:49:27 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:49:29.263Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:49:29.787Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:49:29 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:49:29.788Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:49:29 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:49:31.790Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:49:31.966Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error occurred while parsing your function triggers.
+
+D:\Dev\www\personal\functions\firebase.service.ts:7
+  public firebaseDb;
+         ^^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (D:\Dev\www\personal\functions\index.js:6:30)
+[debug] [2017-11-19T23:55:30.012Z] ----------------------------------------------------------------------
+[debug] [2017-11-19T23:55:30.015Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-19T23:55:30.016Z] CLI Version:   3.15.2
+[debug] [2017-11-19T23:55:30.016Z] Platform:      win32
+[debug] [2017-11-19T23:55:30.017Z] Node Version:  v8.4.0
+[debug] [2017-11-19T23:55:30.018Z] Time:          Sun Nov 19 2017 21:55:30 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:55:30.018Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-19T23:55:30.045Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-19T23:55:30.046Z] > authorizing via signed-in user
+[debug] [2017-11-19T23:55:30.050Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 21:55:30 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:55:31.571Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:55:31.572Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 21:55:31 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:55:32.847Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-19T23:55:33.382Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 21:55:33 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:55:33.383Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 21:55:33 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-19T23:55:34.831Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-19T23:55:35.074Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error parsing triggers: Cannot find module 'grpc'
+
+Try running "npm install" in your functions directory before deploying.
+[debug] [2017-11-20T00:41:11.652Z] ----------------------------------------------------------------------
+[debug] [2017-11-20T00:41:11.655Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-20T00:41:11.655Z] CLI Version:   3.15.2
+[debug] [2017-11-20T00:41:11.655Z] Platform:      win32
+[debug] [2017-11-20T00:41:11.655Z] Node Version:  v8.4.0
+[debug] [2017-11-20T00:41:11.656Z] Time:          Sun Nov 19 2017 22:41:11 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:11.656Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-20T00:41:11.668Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-20T00:41:11.669Z] > authorizing via signed-in user
+[debug] [2017-11-20T00:41:11.671Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-20T00:41:11.671Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/pcWz7cvJFe4kqYAOem5yq19MlF3Nf9QDrjxtfP15U0c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Nov 19 2017 22:41:11 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:12.586Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T00:41:12.594Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Sun Nov 19 2017 22:41:12 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:15.292Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T00:41:15.293Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Sun Nov 19 2017 22:41:15 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:16.344Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-20T00:41:17.031Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Sun Nov 19 2017 22:41:17 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:17.032Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Sun Nov 19 2017 22:41:17 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T00:41:19.262Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T00:41:19.489Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error parsing triggers: Cannot find module 'grpc'
+
+Try running "npm install" in your functions directory before deploying.
+[debug] [2017-11-20T09:42:14.435Z] ----------------------------------------------------------------------
+[debug] [2017-11-20T09:42:14.437Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions
+[debug] [2017-11-20T09:42:14.438Z] CLI Version:   3.15.2
+[debug] [2017-11-20T09:42:14.438Z] Platform:      win32
+[debug] [2017-11-20T09:42:14.438Z] Node Version:  v8.4.0
+[debug] [2017-11-20T09:42:14.438Z] Time:          Mon Nov 20 2017 07:42:14 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:14.439Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-20T09:42:14.451Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-20T09:42:14.452Z] > authorizing via signed-in user
+[debug] [2017-11-20T09:42:14.454Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-20T09:42:14.454Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/pcWz7cvJFe4kqYAOem5yq19MlF3Nf9QDrjxtfP15U0c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Nov 20 2017 07:42:14 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:14.973Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T09:42:14.980Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Mon Nov 20 2017 07:42:14 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:16.217Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T09:42:16.218Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Mon Nov 20 2017 07:42:16 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:17.025Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-20T09:42:17.453Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Mon Nov 20 2017 07:42:17 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:17.454Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Mon Nov 20 2017 07:42:17 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-20T09:42:18.702Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-20T09:42:18.846Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Failed to load functions source code. Ensure that you have the latest SDK by running npm i --save firebase-functions inside the functions directory.
+[warn] !  functions: Error from emulator. FirebaseError: Error parsing triggers: Cannot find module 'grpc'
+
+Try running "npm install" in your functions directory before deploying.
