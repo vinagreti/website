@@ -27,7 +27,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
     UserRoleDirectiveModule,
     AppRoutingModule,
     AuthServiceModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: '345vETRVÇwrtbertÇB45b#$^Ç%b3245'}),
     BrowserAnimationsModule,
     FlexLayoutModule,
     GuardModule,

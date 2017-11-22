@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDatabaseService } from './../shared/services/local-database/local-database.service';
+import { Collection } from './../shared/services/local-database/src/collection';
 import { Observable } from 'rxjs/Observable';
 
 const collectionName = 'posts';
@@ -12,7 +13,7 @@ const collectionName = 'posts';
 export class BlogComponent implements OnInit {
 
   posts: Observable<any>;
-  private collection;
+  private collection: Collection;
 
   constructor(private db: LocalDatabaseService) { }
 

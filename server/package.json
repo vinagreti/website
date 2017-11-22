@@ -1,6 +1,6 @@
 {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
+  "name": "server",
+  "description": "Cloud Server for Firebase",
   "scripts": {
     "serve": "firebase serve --only functions",
     "shell": "firebase experimental:functions:shell",
@@ -9,10 +9,13 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "firebase": "^4.6.2",
-    "firebase-admin": "~5.4.2",
-    "firebase-functions": "^0.7.3",
-    "grpc": "^1.7.2"
+    "firebase-functions": "",
+    "firebase-admin": "",
+    "express": "*",
+    "@angular/platform-server": "*",
+    "grpc": "^1.7.1",
+    "fs": "*",
+    "zone.js": "*"
   },
   "private": true
 }

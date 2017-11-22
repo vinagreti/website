@@ -5,8 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run build-gh-page && npm run create-404 && npm run sw",
-    "build-gh-page": "ng build --prod --base-href=https://vinagreti.github.io/",
+    "build": "ng build --prod && npm run create-404 && npm run sw",
+    "gh-page": "ng build --prod --base-href=https://vinagreti.github.io/ && npm run create-404 && npm run sw",
+    "build-firebase": "ng build --prod --app 1 && tsc -p server/tsconfig.functions.json && cp src/index.html functions/dist-server/",
     "create-404": "cp dist/index.html dist/404.html",
     "dep:fn": "firebase serve --only functions",
     "dist": "cd dist && live-server --port=4200 --host=0.0.0.0 --entry-file=/index.html",

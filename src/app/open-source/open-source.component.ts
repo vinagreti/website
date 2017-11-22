@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalDatabaseService, Collection } from './../shared/services/local-database/local-database.service';
+import { LocalDatabaseService } from './../shared/services/local-database/local-database.service';
+import { Collection } from './../shared/services/local-database/src/collection';
 import { Observable } from 'rxjs/Observable';
 
 const openSourceCollectionName = 'openSource';
@@ -22,7 +23,7 @@ export class OpenSourceComponent implements OnInit {
   }
 
   loadOpenSourceCollection() {
-    this.collection = this.db.collection(openSourceCollectionName)
+    this.collection = this.db.collection(openSourceCollectionName);
   }
 
   loadOpenSourceDocuments() {

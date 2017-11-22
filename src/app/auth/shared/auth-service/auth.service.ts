@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { User } from './../../../user/user.model';
-import { JsonLocalStorage } from './../../../shared/services/local-database/local-database.service';
+import { LocalDatabaseService } from './../../../shared/services/local-database/local-database.service';
 import { LocalFirebaseService } from './../../../shared/services/local-firebase/local-firebase.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -15,7 +15,8 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    private localFirebase: LocalFirebaseService
+    private localFirebase: LocalFirebaseService,
+    private localDatabaseService: LocalDatabaseService
   ) {
     console.log('AuthService started');
     this.subscribeToUser();
@@ -26,7 +27,7 @@ export class AuthService {
   private subscribeToUser() {
     this.user.subscribe((user: User) => {
       if (user) {
-        if (JsonLocalStorage.set('user', user)) {
+        if (this.localDatabaseService.set('user', user)) {
           this._user = user;
         }
       }
@@ -40,7 +41,7 @@ export class AuthService {
   }
 
   private subscribeToStorage() {
-    const user = JsonLocalStorage.get('user');
+    const user = this.localDatabaseService.get('user');
     this.user.next(user);
   }
 
