@@ -1,3 +1,5 @@
+const notFoundMessage = 'Cannot find localStorage on this environment.';
+
 export const LocalDbDriver = {
 
   checkStorageAvailability: () => {
@@ -5,35 +7,48 @@ export const LocalDbDriver = {
     try {
       const testKey = '__np_storage_test__' + Date.now();
       type = 'localStorage';
-      localStorage.setItem(testKey, 'work');
-      localStorage.removeItem(testKey);
-      return true;
+      if (localStorage) {
+        localStorage.setItem(testKey, 'work');
+        localStorage.removeItem(testKey);
+        return true;
+      } else {
+        throw new Error(notFoundMessage);
+      }
     } catch (e) {
-      console.error('LocalDatabaseServiceError: Cannot find ' + type + ' on this browser.');
+      console.error('LocalDatabaseServiceError: ', e);
       return false;
     }
   },
 
   get: (itemName) => {
-    if (!itemName) {
-      return;
-    }
-    const localValue = localStorage.getItem(itemName);
-    if (localValue) {
-      return JSON.parse(localValue);
-    } else {
-      return undefined;
+    try {
+      if (localStorage) {
+        const localValue = localStorage.getItem(itemName);
+        if (localValue) {
+          return JSON.parse(localValue);
+        } else {
+          return undefined;
+        }
+      } else {
+        throw new Error(notFoundMessage);
+      }
+    } catch (e) {
+      return false;
     }
   },
 
   set: (itemName, value) => {
     try {
-      if (value) {
-        localStorage.setItem(itemName, JSON.stringify(value));
+      if (localStorage) {
+        if (value) {
+          localStorage.setItem(itemName, JSON.stringify(value));
+        } else {
+          LocalDbDriver.remove(itemName);
+        }
+        return true;
       } else {
-        LocalDbDriver.remove(itemName);
+        throw new Error(notFoundMessage);
       }
-      return true;
     } catch (e) {
       return false;
     }
@@ -41,8 +56,12 @@ export const LocalDbDriver = {
 
   remove: (itemName) => {
     try {
-      localStorage.removeItem(itemName);
-      return true;
+      if (localStorage) {
+        localStorage.removeItem(itemName);
+        return true;
+      } else {
+        throw new Error(notFoundMessage);
+      }
     } catch (e) {
       return false;
     }
