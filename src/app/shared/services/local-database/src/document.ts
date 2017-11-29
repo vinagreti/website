@@ -1,8 +1,9 @@
-import { BehaviorSubject, Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class Document {
 
-  value: BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
+  value: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(public collectionName: string,
               public documentId: string) {

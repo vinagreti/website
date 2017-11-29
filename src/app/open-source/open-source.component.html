@@ -1,19 +1,9 @@
 <div class="default-content-container">
   <h1>open source</h1>
 
-  <ol fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between" class="style-type-none" *ngIf="(projects | async)?.length; else nothingHere;">
-    <li fxFlex="48%" fxFlex.lt-md="100%" *ngFor="let project of projects | async">
-      <a [href]="project.link" target="_blank">
-        <mat-card>
-          <mat-card-title>{{project.title}}</mat-card-title>
-          <mat-card-content>
-            {{project.description}}
-          </mat-card-content>
-          <mat-card-actions align="end">
-            <button mat-raised-button color="warn" type="button" (click)="delete($event, project)" *userRole>DELETE</button>
-          </mat-card-actions>
-        </mat-card>
-      </a>
+  <ol class="style-type-none" *ngIf="(projects | async)?.length; else nothingHere;">
+    <li *ngFor="let project of projects | async">
+      <app-open-source-card [project]="project"></app-open-source-card>
     </li>
   </ol>
 </div>
@@ -21,3 +11,4 @@
 <ng-template #nothingHere>
   <p>Comming soon...</p>
 </ng-template>
+

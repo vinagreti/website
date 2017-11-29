@@ -29,10 +29,4 @@ export class OpenSourceComponent implements OnInit {
   loadOpenSourceDocuments() {
     this.projects = this.db.collection(openSourceCollectionName).documents();
   }
-
-  delete(event, project) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.collection.delete(project);
-  }
 }

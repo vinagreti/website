@@ -71,6 +71,7 @@ export class ShareComponent implements OnInit {
   initShareForm() {
     this.shareForm = this.formBuilder.group({
       type: ['posts'],
+      openSourceType: ['owner'],
     });
   }
 
@@ -89,7 +90,8 @@ export class ShareComponent implements OnInit {
     const description = this.openSourcesForm.controls.description.value;
     const link = this.openSourcesForm.controls.link.value;
     const title = this.openSourcesForm.controls.title.value;
-    const openSource = {link, title, description};
+    const type = this.shareForm.controls.openSourceType.value;
+    const openSource = {link, title, description, type};
     const subscription = this.db.collection(this.openSourceCollectionName)
     .create(openSource)
     .then((res: any) => {

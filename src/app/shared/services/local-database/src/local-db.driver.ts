@@ -15,7 +15,7 @@ export const LocalDbDriver = {
         throw new Error(notFoundMessage);
       }
     } catch (e) {
-      console.error('LocalDatabaseServiceError: ', e);
+      console.warn('LocalDatabaseServiceWarn: ', e);
       return false;
     }
   },

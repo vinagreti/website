@@ -294,3 +294,204 @@ Error: ENOENT: no such file or directory, open 'D:\Dev\www\personal\functions\in
 [debug] [2017-11-21T22:44:13.784Z] <<< HTTP RESPONSE 200
 [debug] [2017-11-21T22:44:13.954Z] <<< HTTP RESPONSE 200
 [info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp
+[debug] [2017-11-22T01:12:35.554Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:12:35.556Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:12:35.556Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:12:35.556Z] Platform:      win32
+[debug] [2017-11-22T01:12:35.556Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:12:35.557Z] Time:          Tue Nov 21 2017 23:12:35 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:35.557Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:12:35.571Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:12:35.571Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:12:35.573Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-22T01:12:35.573Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/pcWz7cvJFe4kqYAOem5yq19MlF3Nf9QDrjxtfP15U0c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Nov 21 2017 23:12:35 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:36.029Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:12:36.036Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:12:36 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:37.243Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:12:37.243Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:12:37 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:38.111Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:12:38.534Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:12:38 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:38.535Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:12:38 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:50.361Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:12:50.364Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:12:50.364Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:12:50.364Z] Platform:      win32
+[debug] [2017-11-22T01:12:50.364Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:12:50.365Z] Time:          Tue Nov 21 2017 23:12:50 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:50.365Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:12:50.378Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:12:50.379Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:12:50.381Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:12:50 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:53.375Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:12:53.376Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:12:53 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:54.360Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:12:54.784Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:12:54 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:54.784Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:12:54 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:12:56.000Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:12:56.178Z] <<< HTTP RESPONSE 200
+[info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp
+[debug] [2017-11-22T01:24:23.314Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:24:23.316Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:24:23.317Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:24:23.317Z] Platform:      win32
+[debug] [2017-11-22T01:24:23.317Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:24:23.318Z] Time:          Tue Nov 21 2017 23:24:23 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:23.318Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:24:23.332Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:24:23.332Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:24:23.334Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:24:23 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:24.523Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:24:24.523Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:24:24 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:25.312Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:24:25.755Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:24:25 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:25.756Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:24:25 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:26.936Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:24:27.149Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:24:50.928Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:24:50.931Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:24:50.931Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:24:50.931Z] Platform:      win32
+[debug] [2017-11-22T01:24:50.931Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:24:50.932Z] Time:          Tue Nov 21 2017 23:24:50 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:50.932Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:24:50.943Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:24:50.944Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:24:50.946Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:24:50 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:53.942Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:24:53.942Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:24:53 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:54.932Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:24:55.353Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:24:55 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:55.354Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:24:55 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:24:56.454Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:24:56.633Z] <<< HTTP RESPONSE 200
+[info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp
+[debug] [2017-11-22T01:58:03.358Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:58:03.360Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:58:03.361Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:58:03.361Z] Platform:      win32
+[debug] [2017-11-22T01:58:03.361Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:58:03.361Z] Time:          Tue Nov 21 2017 23:58:03 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:03.361Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:58:03.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:58:03.374Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:58:03.376Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-22T01:58:03.377Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/pcWz7cvJFe4kqYAOem5yq19MlF3Nf9QDrjxtfP15U0c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Nov 21 2017 23:58:03 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:03.825Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:58:03.832Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:58:03 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:05.223Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:58:05.224Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:58:05 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:06.059Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:58:06.506Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:58:06 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:06.507Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:58:06 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:07.663Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:58:07.836Z] <<< HTTP RESPONSE 200
+[info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp
+[debug] [2017-11-22T01:58:39.352Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T01:58:39.355Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T01:58:39.355Z] CLI Version:   3.15.2
+[debug] [2017-11-22T01:58:39.355Z] Platform:      win32
+[debug] [2017-11-22T01:58:39.355Z] Node Version:  v8.4.0
+[debug] [2017-11-22T01:58:39.356Z] Time:          Tue Nov 21 2017 23:58:39 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:39.356Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T01:58:39.367Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T01:58:39.368Z] > authorizing via signed-in user
+[debug] [2017-11-22T01:58:39.370Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Tue Nov 21 2017 23:58:39 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:40.331Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:58:40.331Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Tue Nov 21 2017 23:58:40 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:41.149Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T01:58:41.569Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Tue Nov 21 2017 23:58:41 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:41.569Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Tue Nov 21 2017 23:58:41 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T01:58:42.641Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T01:58:42.815Z] <<< HTTP RESPONSE 200
+[info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp
+[debug] [2017-11-22T02:11:53.301Z] ----------------------------------------------------------------------
+[debug] [2017-11-22T02:11:53.304Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bruno\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve --only functions:host
+[debug] [2017-11-22T02:11:53.304Z] CLI Version:   3.15.2
+[debug] [2017-11-22T02:11:53.304Z] Platform:      win32
+[debug] [2017-11-22T02:11:53.304Z] Node Version:  v8.4.0
+[debug] [2017-11-22T02:11:53.305Z] Time:          Wed Nov 22 2017 00:11:53 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T02:11:53.305Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-22T02:11:53.318Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-22T02:11:53.318Z] > authorizing via signed-in user
+[debug] [2017-11-22T02:11:53.321Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/we-profile-96cff  
+ Wed Nov 22 2017 00:11:53 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T02:11:54.461Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T02:11:54.462Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/we-profile-96cff/tokens  
+ Wed Nov 22 2017 00:11:54 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T02:11:55.318Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\Dev\www\personal'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2017-11-22T02:11:55.789Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/we-profile-96cff  
+ Wed Nov 22 2017 00:11:55 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T02:11:55.790Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/we-profile-96cff/apiKeys  
+ Wed Nov 22 2017 00:11:55 GMT-0200 (E. South America Daylight Time)
+[debug] [2017-11-22T02:11:56.939Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-22T02:11:57.117Z] <<< HTTP RESPONSE 200
+[info] +  functions: ssrapp: http://localhost:5000/we-profile-96cff/us-central1/ssrapp

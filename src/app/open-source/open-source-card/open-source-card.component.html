@@ -1,0 +1,33 @@
+<div *ngIf="!editionMode else cardTemplate">
+  <a [href]="project.link" target="_blank">
+    <mat-card>
+      <mat-card-title>
+        <div fxLayout="row" fxLayoutGrow fxLayoutAlign="space-between">
+          <div>{{project.title}}</div>
+          <div>
+            <mat-chip-list [ngSwitch]="project.type">
+              <mat-chip color="primary" selected="true" *ngSwitchCase="'owner'">Owner</mat-chip>
+              <mat-chip color="warn" selected="true" *ngSwitchCase="'contributor'">Contributor</mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+      </mat-card-title>
+      <mat-card-content>
+        {{project.description}}
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="default" type="button" (click)="enableEditionMode($event)" *userRole>
+          Edit
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="delete($event, project)" *userRole>
+          Delete
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </a>
+</div>
+
+
+<ng-template #cardTemplate>
+  <app-open-source-form [project]="project" (close)="handleEdition($event);"></app-open-source-form>
+</ng-template>

@@ -4,6 +4,8 @@ import 'firebase/firestore';
 import { environment } from './../../../../environments/environment';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+let FIREBASE_INITIALIZED: boolean;
+
 @Injectable()
 export class LocalFirebaseService {
 
@@ -16,8 +18,12 @@ export class LocalFirebaseService {
   }
 
   private startFirebase() {
-    firebase.initializeApp(environment.firebase_config);
-    firebase.firestore().enablePersistence();
+/*    if (!FIREBASE_INITIALIZED) {
+      console.log('FIREBASE_INITIALIZED');*/
+      firebase.initializeApp(environment.firebase_config);
+/*      FIREBASE_INITIALIZED = true;
+    }*/
+    // firebase.firestore().enablePersistence();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.authStatus.next(user);
